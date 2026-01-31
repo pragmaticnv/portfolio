@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "school": "SHREE JI PUBLIC SCHOOL",
+        "degree": "FROM 1ST TO 10TH",
+        "year": "2012 - 2022",
+        "description": "completed my high schoolfrom here"
+    },
+    {
+        "id": 2,
+        "school": "JEEVAN JYOTI PUBLIC SCHOOL ",
+        "degree": "11TH - 12TH",
+        "year": "2022 - 2024",
+        "description": "COMPLETED MY INTERMEDIATE STUDIES FROM THIS SCHOOL"
+    },
+    {
+        "id": 3,
+        "school": "chandigarh university , india",
+        "degree": "B.E. in Computer Science and Engineering",
+        "year": "2025 - 2029",
+        "description": "graduating in computer science and engineering from this university "
+    }
+]

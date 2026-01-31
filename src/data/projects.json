@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "title": "MindCanvas",
+        "description": "An AI-powered brainstorming tool that helps users generate and organize ideas visually.",
+        "tech": [
+            "Next.js",
+            "OpenAI API",
+            "React Flow"
+        ],
+        "link": "https://mindcanvas.app"
+    },
+    {
+        "id": 2,
+        "title": "SmartHome Hub",
+        "description": "A centralized dashboard to control IoT devices with voice commands and automation scripts.",
+        "tech": [
+            "React",
+            "Node.js",
+            "MQTT"
+        ],
+        "link": "https://github.com/user/smarthome-hub"
+    },
+    {
+        "id": 3,
+        "title": "Portfolio v1",
+        "description": "My previous portfolio site built with Gatsby and styled components.",
+        "tech": [
+            "Gatsby",
+            "GraphQL",
+            "Styled Components"
+        ],
+        "link": "https://v1.portfolio.com"
+    }
+]
