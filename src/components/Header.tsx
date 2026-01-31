@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Home, GraduationCap, Plane, Headphones } from "lucide-react";
+import { Home, GraduationCap, Plane, Headphones, Mail } from "lucide-react";
 import { useState } from "react";
 
 const navItems = [
@@ -10,6 +10,7 @@ const navItems = [
     { icon: GraduationCap, href: "/education", label: "Education" },
     { icon: Plane, href: "/travel", label: "Travel" },
     { icon: Headphones, href: "/interests", label: "Interests" },
+    { icon: Mail, href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
