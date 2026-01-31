@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hi there, I'm nikhil vashishtha!! 👋
 
-## Getting Started
+### 🚀 Physics & Electronics Student | Aspiring Developer
 
-First, run the development server:
+Welcome to my personal portfolio! I am a student with a background in ENGINEERING WROLD.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🛠️ Tech Stack
+* **Frontend:** Next.js, Tailwind CSS, Framer Motion
+* **Hardware/IoT:** Arduino, C++, Home Automation
+* **Languages:** Python, JavaScript, HTML/CSS , c , c++
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🔭 Featured Projects
+* **MindCanvas:** An anonymous collaborative diary application for sharing thoughts freely.
+* **Home Automation System:** A custom IoT setup to control home appliances using Arduino.
+* **Tekathon 2025:** Led a team of 6 to propose and defend innovative technical solutions.
+* **square hacks 2025:** TEAM lEAD of a hackathon of iit delhi based on build for rural india. 
+* **build for bharat:** TEAM lEAD of a hackathon of chandigarh university based on build for bharat. 
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+### 🎵 Vibe Check
+When I'm not coding or soldering components, I'm probably listening to **jagjit singh** or reading a good novel.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+_Built with [Next.js](https://nextjs.org/) and [Antigravity](https://google.com)._
