@@ -12,8 +12,8 @@ const ProfileCard = () => {
             <div className="flex flex-col gap-4">
                 <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-blue-500">
                     {/* Placeholder for profile image, using a gradient for now if no image */}
-                    <div className="w-full h-full bg-gradient-to-tr from-blue-400 to-purple-500" />
-                    {/* <Image src="/profilephoto.png.jpg" alt="Profile" fill className="object-cover" /> */}
+                    {/* <div className="w-full h-full bg-gradient-to-tr from-blue-400 to-purple-500" /> */}
+                    <Image src="/profilephoto.png" alt="Profile" fill className="object-cover" />
                 </div>
                 <div>
                     <h2 className="text-2xl font-bold text-zinc-800 dark:text-white">NIKHIL VASHISHTHA</h2>
