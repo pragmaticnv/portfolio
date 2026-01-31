@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function InterestsPage() {
     return (
-        <main className="min-h-screen bg-zinc-50 dark:bg-zinc-950 px-8 pb-8 pt-24 md:p-24 flex justify-center">
+        <main className="min-h-screen px-8 pb-8 pt-24 md:p-24 flex justify-center">
             <div className="max-w-md w-full">
                 <div className="mb-8">
                     <Link

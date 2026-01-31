@@ -6,7 +6,7 @@ import DonutChart from "@/components/DonutChart";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-white pb-24">
+    <main className="min-h-screen text-white pb-24">
       {/* Hero Section */}
       <section className="h-screen flex flex-col items-center justify-center p-8 text-center">
         <motion.div
@@ -46,7 +46,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-20 px-8 bg-zinc-100/50 dark:bg-zinc-900/50">
+      <section className="py-20 px-8 bg-black/20 backdrop-blur-sm">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -55,7 +55,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-3xl font-bold mb-8">About Me</h2>
-            <p className="text-lg md:text-xl leading-relaxed text-zinc-600 dark:text-zinc-300">
+            <p className="text-lg md:text-xl leading-relaxed text-zinc-300">
               With a strong foundation in Physics & Electronics, I bridge the gap between hardware and software.
               I'm deeply passionate about Coding and creating intuitive digital experiences.
               Whether it's designing circuits or architecting full-stack applications, I love solving complex problems.
