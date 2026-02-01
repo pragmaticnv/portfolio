@@ -1,15 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import educationData from "@/data/education.json";
+import travelData from "@/data/travel.json";
 import Image from "next/image";
 
-const EducationGrid = () => {
+const TravelGrid = () => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl">
-            {educationData.map((edu, index) => (
+            {travelData.map((trip, index) => (
                 <motion.div
-                    key={edu.id}
+                    key={trip.id}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
@@ -19,8 +19,8 @@ const EducationGrid = () => {
                     {/* Top Half: Cover Image */}
                     <div className="relative h-[200px] w-full overflow-hidden">
                         <Image
-                            src={edu.image}
-                            alt={edu.school}
+                            src={trip.image}
+                            alt={trip.place}
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
@@ -30,18 +30,16 @@ const EducationGrid = () => {
                     {/* Bottom Half: Content */}
                     <div className="p-6 flex flex-col flex-grow">
                         <div className="flex justify-between items-start mb-2">
-                            <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors">
-                                {edu.school}
+                            <h3 className="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors">
+                                {trip.place}
                             </h3>
                             <span className="text-sm font-medium text-white/50 bg-white/10 px-2 py-1 rounded-full">
-                                {edu.year}
+                                {trip.visited}
                             </span>
                         </div>
 
-                        <h4 className="text-md text-blue-200 mb-4 font-medium">{edu.degree}</h4>
-
-                        <p className="text-zinc-400 text-sm leading-relaxed flex-grow">
-                            {edu.description}
+                        <p className="text-zinc-400 text-sm leading-relaxed flex-grow mt-2">
+                            {trip.description}
                         </p>
                     </div>
                 </motion.div>
@@ -50,4 +48,4 @@ const EducationGrid = () => {
     );
 };
 
-export default EducationGrid;
+export default TravelGrid;

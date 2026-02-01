@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "name": "Playing Cricket",
+        "category": "Sports",
+        "description": "Enjoy playing cricket on weekends.",
+        "longDescription": "Cricket is more than just a game for me; it's a test of strategy, patience, and teamwork. Whether it's batting under pressure or strategizing in the field, I love the competitive spirit and camaraderie it builds. I regularly play matches on weekends and follow international tournaments passionately.",
+        "image": "/chandigarhuni.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Writing Monologues",
+        "category": "Creative",
+        "description": "Expressing thoughts through dramatic writing.",
+        "longDescription": "Writing monologues allows me to step into different characters' shoes and explore complex emotions. It's a creative outlet where I can craft compelling narratives and explore the human psyche through words. I enjoy experimenting with different tones, from dramatic to comedic.",
+        "image": "/chandigarhuni.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Chess",
+        "category": "Strategy",
+        "description": "Sharpening critical thinking and foresight.",
+        "longDescription": "Chess is my mental gym. Every game is a new puzzle that requires foresight, pattern recognition, and adaptability. I love the beautiful complexity of the game and how one small move can change the entire outcome. It teaches me to think several steps ahead in life as well.",
+        "image": "/chandigarhuni.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Playing Flute",
+        "category": "Music",
+        "description": "Exploring the soulful melodies of the flute.",
+        "longDescription": "The flute connects me to a deeper sense of peace and rhythm. Learning to control breath and produce pure tones is a meditative practice. I enjoy playing classical ragas as well as contemporary tunes, finding joy in the simple beauty of a melody.",
+        "image": "/chandigarhuni.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Building Web Templates",
+        "category": "Tech",
+        "description": "Designing and coding reusable web templates.",
+        "longDescription": "I have a knack for creating clean, reusable, and aesthetically pleasing web structures. It involves a blend of design thinking and coding efficiency. I love experimenting with new CSS frameworks, animation libraries like Framer Motion, and creating seamless user experiences.",
+        "image": "/chandigarhuni.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Online Gaming",
+        "category": "Gaming",
+        "description": "Competitively playing strategy and FPS games.",
+        "longDescription": "Gaming is my way to unwind and stay sharp. Whether it's the fast-paced action of FPS games or the long-term planning in strategy games, I enjoy the challenge and the community. It also helps refine my reflexes and quick decision-making skills.",
+        "image": "/chandigarhuni.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Creating Content",
+        "category": "Creative",
+        "description": "Sharing knowledge through digital content.",
+        "longDescription": "I believe in the power of sharing knowledge. Creating content, whether it's tech tutorials, blog posts, or creative videos, allows me to clarify my own thoughts and help others. It's a journey of continuous learning and community building.",
+        "image": "/chandigarhuni.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Participating in Hackathons",
+        "category": "Tech",
+        "description": "Collaborating to build innovative solutions.",
+        "longDescription": "Hackathons are the ultimate test of coding skills and teamwork. The adrenaline rush of building a working prototype in 24-48 hours is addictive. It pushes me to learn new technologies on the fly and solve real-world problems under pressure.",
+        "image": "/chandigarhuni.jpg"
+    }
+]

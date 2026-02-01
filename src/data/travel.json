@@ -1,29 +1,35 @@
 [
     {
         "id": 1,
-        "place": "AMRITSAR PUNJAB",
+        "place": "Amritsar, Punjab",
         "coordinates": [
-            35.0116,
-            135.7681
+            31.6340,
+            74.8723
         ],
-        "visited": "Spring 2020"
+        "visited": "Spring 2020",
+        "description": "Visited the Golden Temple and experienced the rich culture and history of Punjab. The spiritual atmosphere and the food were unforgettable.",
+        "image": "/punjab.jpg"
     },
     {
         "id": 2,
-        "place": "SHIMLA HP",
+        "place": "Shimla, Himachal Pradesh",
         "coordinates": [
-            64.1265,
-            -21.8174
+            31.1048,
+            77.1734
         ],
-        "visited": "Winter 2025"
+        "visited": "Winter 2025",
+        "description": "Enjoyed the snowy landscapes and colonial architecture. Trekking in the mountains and walking on the Ridge was a highlight.",
+        "image": "/IMG20251207175635.jpg"
     },
     {
         "id": 3,
-        "place": "UP INDIA",
+        "place": "Uttar Pradesh, India",
         "coordinates": [
-            40.7128,
-            -74.0060
+            26.8467,
+            80.9462
         ],
-        "visited": "Summer 2020"
+        "visited": "Summer 2020",
+        "description": "Explored the cultural heritage and vibrant cities of the state. A journey through diverse traditions and historical landmarks.",
+        "image": "/IMG20251208111106.jpg"
     }
 ]

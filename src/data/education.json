@@ -2,22 +2,25 @@
     {
         "id": 1,
         "school": "SHREE JI PUBLIC SCHOOL",
-        "degree": "FROM 1ST TO 10TH",
+        "degree": "1ST - 10TH Grade",
         "year": "2012 - 2022",
-        "description": "completed my high schoolfrom here"
+        "description": "Completed my primary and high school education with a focus on science and mathematics. Participated in various science exhibitions and sports events.",
+        "image": "/shreeji.jpg"
     },
     {
         "id": 2,
-        "school": "JEEVAN JYOTI PUBLIC SCHOOL ",
-        "degree": "11TH - 12TH",
+        "school": "JEEVAN JYOTI PUBLIC SCHOOL",
+        "degree": "11TH - 12TH (Intermediate)",
         "year": "2022 - 2024",
-        "description": "COMPLETED MY INTERMEDIATE STUDIES FROM THIS SCHOOL"
+        "description": "Specialized in Non-Medical Sciences (Physics, Chemistry, Mathematics). Developed a strong foundation in problem-solving and analytical thinking.",
+        "image": "/jjps.jpg"
     },
     {
         "id": 3,
-        "school": "chandigarh university , india",
+        "school": "Chandigarh University, India",
         "degree": "B.E. in Computer Science and Engineering",
         "year": "2025 - 2029",
-        "description": "graduating in computer science and engineering from this university "
+        "description": "Pursuing a Bachelor's degree with a specialization in Artificial Intelligence. Active member of the coding club and working on various full-stack projects.",
+        "image": "/chandigarhuni.jpg"
     }
 ]

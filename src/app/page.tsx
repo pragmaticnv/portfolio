@@ -3,34 +3,47 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import DonutChart from "@/components/DonutChart";
+import Spotlight from "@/components/Spotlight";
+import InfiniteMarquee from "@/components/InfiniteMarquee";
+import Tilt from "react-parallax-tilt";
 
 export default function Home() {
   return (
-    <main className="min-h-screen text-white pb-24">
+    <main className="min-h-screen text-white pb-0 relative overflow-x-hidden">
+      <Spotlight />
+
       {/* Hero Section */}
-      <section className="h-screen flex flex-col items-center justify-center p-8 text-center">
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative w-[190px] h-[190px] mb-8"
-        >
-          <div className="absolute inset-0 rounded-full bg-blue-500 blur-xl opacity-50 animate-pulse"></div>
-          <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/20 dark:border-white/10 shadow-2xl">
-            <Image
-              src="/profilephoto.png"
-              alt="Nikhil Vashishtha"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </motion.div>
+      <section className="min-h-screen flex flex-col items-center justify-center p-8 text-center relative z-10">
+
+        <Tilt tiltMaxAngleX={15} tiltMaxAngleY={15} scale={1.05} transitionSpeed={2500}>
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative w-[240px] h-[240px] mb-10 group cursor-pointer" // Slightly larger container for the plate
+          >
+            <div className="absolute inset-0 rounded-3xl bg-white/5 backdrop-blur-lg border border-white/20 shadow-2xl transform rotate-3 transition-transform group-hover:rotate-0"></div>
+
+            <div className="absolute inset-2 rounded-full overflow-hidden border-4 border-white/10 shadow-inner z-10 bg-black/50">
+              <Image
+                src="/profilephoto.png"
+                alt="Nikhil Vashishtha"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            {/* Decorative elements on the plate */}
+            <div className="absolute -top-2 -right-2 w-6 h-6 bg-blue-500 rounded-full blur-md animate-pulse"></div>
+            <div className="absolute bottom-4 left-4 w-2 h-2 bg-white/50 rounded-full"></div>
+          </motion.div>
+        </Tilt>
 
         <motion.h1
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-zinc-900 to-zinc-600 dark:from-white dark:to-zinc-400"
+          className="text-6xl md:text-7xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/40" // More vertical gradient for metallic feel
         >
           Nikhil Vashishtha
         </motion.h1>
@@ -39,14 +52,19 @@ export default function Home() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xl md:text-2xl text-zinc-500 dark:text-zinc-400 font-light"
+          className="text-xl md:text-2xl text-blue-200/80 font-light tracking-wide mb-12"
         >
           Welcome to My Personal Portfolio
         </motion.p>
       </section>
 
+      {/* Infinite Tech Marquee (Bottom Plate) */}
+      <div className="w-full relative z-20">
+        <InfiniteMarquee />
+      </div>
+
       {/* About Section */}
-      <section className="py-20 px-8 bg-black/20 backdrop-blur-sm">
+      <section className="py-24 px-8 bg-black/20 backdrop-blur-sm relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -54,7 +72,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl font-bold mb-8">About Me</h2>
+            <h2 className="text-4xl font-bold mb-8 text-white/90">About Me</h2>
             <p className="text-lg md:text-xl leading-relaxed text-zinc-300">
               With a strong foundation in Physics & Electronics, I bridge the gap between hardware and software.
               I'm deeply passionate about Coding and creating intuitive digital experiences.
@@ -65,13 +83,13 @@ export default function Home() {
       </section>
 
       {/* Skills Dashboard */}
-      <section className="py-20 px-8">
+      <section className="py-24 px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
           <motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-3xl font-bold text-center mb-16"
+            className="text-4xl font-bold text-center mb-16 text-white/90"
           >
             My Skillset
           </motion.h2>
@@ -85,7 +103,7 @@ export default function Home() {
             />
             <DonutChart
               percentage={70}
-              color="#10b981" // emerald-500 (using green for frontend)
+              color="#10b981" // emerald-500
               label="Frontend Dev"
               delay={0.4}
             />
