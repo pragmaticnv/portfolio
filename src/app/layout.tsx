@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 };
 
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function RootLayout({
   children,
@@ -27,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen text-white bg-black`}
         style={{
           background:
             "radial-gradient(ellipse 80% 50% at 50% 0%, #1e3a8a 0%, #111827 45%, #000000 100%)",
@@ -35,7 +36,8 @@ export default function RootLayout({
         }}
       >
         <Header />
-        {children}
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
