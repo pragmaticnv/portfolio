@@ -2,7 +2,14 @@
     {
         "id": 1,
         "title": "SafeMap AI",
-        "description": "Real-time global travel safety platform with a 3D WebGL globe, AI-powered chatbot, and serverless backend. Won 3rd Place at Escape The Vincii '26 against 100+ teams.",
+        "description": "Real-time global travel safety platform with a 3D WebGL globe, AI-powered chatbot, and serverless backend. Won 3rd Place at Escape The Vincii '26.",
+        "longDescription": "SafeMap AI is a comprehensive safety platform designed for global travelers. It leverages Three.js for a performant 3D globe visualization and integrates real-time safety data from various APIs. The project includes an AI chatbot that provides contextual safety advice based on the user's selected location.",
+        "features": [
+            "Interactive 3D Globe with Three.js",
+            "Real-time safety score calculations",
+            "AI-powered location-based safety chatbot",
+            "Mobile-responsive dashboard"
+        ],
         "tech": [
             "Next.js",
             "Three.js",
@@ -16,7 +23,14 @@
     {
         "id": 2,
         "title": "Women Safety SOS Device",
-        "description": "IoT hardware device for rural women's safety featuring GPS tracking and instant voice distress alerts. Built for the IIT Delhi Build for Rural India Hackathon.",
+        "description": "IoT hardware device for rural women's safety featuring GPS tracking and instant voice distress alerts.",
+        "longDescription": "A low-cost, high-impact IoT device designed for the safety of women in rural areas. The device features a panic button that triggers instant SMS alerts with GPS coordinates to emergency contacts and triggers a loud siren. It also includes an offline voice messaging module for communication in low-connectivity zones.",
+        "features": [
+            "GPS tracking with high accuracy",
+            "Instant SMS & Voice alerts via GSM",
+            "Emergency siren and LED signaling",
+            "Low power consumption for long battery life"
+        ],
         "tech": [
             "Arduino",
             "GPS Module",
@@ -29,7 +43,14 @@
     {
         "id": 3,
         "title": "VANGUARD Digital Twin",
-        "description": "Heritage site protection system using IoT sensors paired with a live web dashboard. Monitors environmental conditions in real time to preserve cultural landmarks.",
+        "description": "Heritage site protection system using IoT sensors paired with a live web dashboard.",
+        "longDescription": "VANGUARD uses a network of sensors to monitor environmental factors such as temperature, humidity, and structural tilt at heritage sites. This data is transmitted to a digital twin dashboard, allowing conservators to monitor the site's health in real-time and receive alerts for potential hazards.",
+        "features": [
+            "Real-time sensor data streaming",
+            "Digital twin dashboard visualization",
+            "Environment hazard alerting system",
+            "Historical data analysis"
+        ],
         "tech": [
             "Arduino",
             "IoT",
@@ -41,7 +62,14 @@
     {
         "id": 4,
         "title": "MindCanvas",
-        "description": "Anonymous collaborative mental health diary with real-time sync. A safe space for users to express thoughts, track moods, and connect with others anonymously.",
+        "description": "Anonymous collaborative mental health diary with real-time sync.",
+        "longDescription": "MindCanvas is a platform where users can anonymously share their thoughts and moods. It uses a canvas-based interface for free-form expression and features real-time synchronization to show a 'collective pulse' of the community's mood. It's built with focus on privacy and mental health support.",
+        "features": [
+            "Real-time anonymous pulse synchronization",
+            "Canvas-based journaling interface",
+            "Mood tracking and visualization",
+            "Firebase-powered real-time updates"
+        ],
         "tech": [
             "Node.js",
             "Firebase Firestore",
@@ -52,7 +80,14 @@
     {
         "id": 5,
         "title": "Personal Portfolio",
-        "description": "A premium, cinematic portfolio website built with modern technologies. Features high-quality visuals, glassmorphism UI, and smooth animations to showcase achievements and projects.",
+        "description": "A premium, cinematic portfolio website built with modern technologies.",
+        "longDescription": "This portfolio project focuses on high-end UI/UX, using Framer Motion for complex animations and Next.js for performance. It features a cinematic hero section, a bento-style 'about' grid, and a custom projects gallery designed to showcase work in a professional, premium manner.",
+        "features": [
+            "Cinematic Hero with custom animations",
+            "Bento-grid design for about section",
+            "Dynamic project loading from JSON",
+            "Fully responsive premium dark theme"
+        ],
         "tech": [
             "Next.js",
             "Framer Motion",
@@ -65,7 +100,14 @@
     {
         "id": 6,
         "title": "RevvUp",
-        "description": "Car modification ecosystem with a build tracker, community showcase, and vendor connections. Helps enthusiasts plan, track, and share vehicle build projects.",
+        "description": "Car modification ecosystem with a build tracker, community showcase, and vendor connections.",
+        "longDescription": "RevvUp provides a centralized platform for car enthusiasts to document their modification journeys. Users can track parts, calculate build costs, share progress with the community, and connect with verified vendors and shops in the automotive space.",
+        "features": [
+            "Modification build tracker",
+            "Community showcase and project feeds",
+            "Vendor and garage directory",
+            "Build cost and parts estimator"
+        ],
         "tech": [
             "Next.js",
             "Tailwind CSS",
