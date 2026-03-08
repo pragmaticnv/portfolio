@@ -7,112 +7,274 @@ import Spotlight from "@/components/Spotlight";
 import InfiniteMarquee from "@/components/InfiniteMarquee";
 import Tilt from "react-parallax-tilt";
 
+// ─── Fade-up helper ────────────────────────────────────────────────
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] as any },
+});
+
+const fadeUpView = {
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as any },
+};
+
+// ─── Achievements data ──────────────────────────────────────────────
+const achievements = [
+  {
+    emoji: "🏆",
+    title: "3rd Place · Escape The Vincii '26",
+    sub: "100+ teams · ₹20,000 prize",
+    glow: "rgba(59,130,246,0.15)",
+  },
+  {
+    emoji: "🎓",
+    title: "IIT Delhi Hackathon",
+    sub: "National Participant · Build for Rural India",
+    glow: "rgba(16,185,129,0.15)",
+  },
+  {
+    emoji: "♟",
+    title: "Chess Rating 1600+",
+    sub: "Undefeated at CU Tournament",
+    glow: "rgba(139,92,246,0.15)",
+  },
+];
+
 export default function Home() {
   return (
     <main className="min-h-screen text-white pb-0 relative overflow-x-hidden">
       <Spotlight />
 
-      {/* Hero Section */}
-      <section className="min-h-screen flex flex-col items-center justify-center p-8 text-center relative z-10">
+      {/* ── HERO ─────────────────────────────────────────────────── */}
+      <section className="relative min-h-screen flex flex-col md:flex-row items-center overflow-hidden bg-black">
+        {/* Background Radial Glow (Left Side) */}
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-blue-900/40 rounded-full blur-[120px] pointer-events-none z-0" />
 
-        <Tilt tiltMaxAngleX={15} tiltMaxAngleY={15} scale={1.05} transitionSpeed={2500}>
+        {/* LEFT SIDE: Content (40%) */}
+        <div className="w-full md:w-[40%] flex flex-col items-center justify-center px-6 md:px-12 z-20 pt-24 md:pt-0">
           <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative w-[240px] h-[240px] mb-10 group cursor-pointer" // Slightly larger container for the plate
+            initial="initial"
+            animate="animate"
+            variants={{
+              animate: { transition: { staggerChildren: 0.15 } }
+            }}
+            className="flex flex-col items-center md:items-start text-center md:text-left"
           >
-            <div className="absolute inset-0 rounded-3xl bg-white/5 backdrop-blur-lg border border-white/20 shadow-2xl transform rotate-3 transition-transform group-hover:rotate-0"></div>
+            {/* Profile Photo Card */}
+            <motion.div
+              variants={{
+                initial: { opacity: 0, scale: 0.9 },
+                animate: { opacity: 1, scale: 1, transition: { duration: 0.6 } }
+              }}
+              className="mb-8"
+            >
+              <Tilt
+                tiltMaxAngleX={15}
+                tiltMaxAngleY={15}
+                scale={1.05}
+                transitionSpeed={2500}
+              >
+                <div className="relative w-48 h-48 md:w-56 md:h-56 p-[2px] rounded-2xl overflow-visible group">
+                  {/* Rotating Gradient Border */}
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                    className="absolute inset-0 rounded-2xl"
+                    style={{
+                      background: "conic-gradient(from 0deg, #3b82f6, #8b5cf6, #3b82f6)",
+                    }}
+                  />
 
-            <div className="absolute inset-2 rounded-full overflow-hidden border-4 border-white/10 shadow-inner z-10 bg-black/50">
-              <Image
-                src="/profilephoto.png"
-                alt="Nikhil Vashishtha"
-                fill
-                className="object-cover"
-              />
-            </div>
+                  {/* Photo Container */}
+                  <div className="relative w-full h-full bg-black rounded-2xl overflow-hidden z-10 border border-white/10">
+                    <Image
+                      src="/profilephoto.png"
+                      alt="Nikhil Vashishtha"
+                      fill
+                      className="object-cover"
+                      priority
+                    />
+                  </div>
 
-            {/* Decorative elements on the plate */}
-            <div className="absolute -top-2 -right-2 w-6 h-6 bg-blue-500 rounded-full blur-md animate-pulse"></div>
-            <div className="absolute bottom-4 left-4 w-2 h-2 bg-white/50 rounded-full"></div>
+                  {/* Pulsing Blue Glow Dot */}
+                  <div className="absolute -bottom-1 -right-1 z-20 w-5 h-5 bg-blue-500 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.8)]">
+                    <div className="absolute inset-0 rounded-full bg-blue-400 animate-ping opacity-75" />
+                  </div>
+                </div>
+              </Tilt>
+            </motion.div>
+
+            {/* Name */}
+            <motion.h1
+              variants={{
+                initial: { opacity: 0, y: 20 },
+                animate: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+              }}
+              className="text-4xl md:text-5xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 via-white to-blue-300"
+            >
+              Nikhil Vashishtha
+            </motion.h1>
+
+            {/* Role line */}
+            <motion.p
+              variants={{
+                initial: { opacity: 0, y: 20 },
+                animate: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+              }}
+              className="text-lg text-blue-200/70 font-medium mb-1"
+            >
+              Full-Stack Developer · Hackathon Winner
+            </motion.p>
+
+            {/* Location */}
+            <motion.p
+              variants={{
+                initial: { opacity: 0, y: 20 },
+                animate: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+              }}
+              className="text-sm text-zinc-400 mb-6"
+            >
+              📍 Mohali · Chandigarh University
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              variants={{
+                initial: { opacity: 0, y: 20 },
+                animate: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+              }}
+              className="flex items-center gap-4 flex-wrap justify-center md:justify-start"
+            >
+              <motion.a
+                href="/projects"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition-colors shadow-lg shadow-blue-900/20"
+              >
+                View Projects
+              </motion.a>
+              <motion.a
+                href="/resume.pdf"
+                download
+                whileHover={{ scale: 1.05, borderColor: "rgba(255,255,255,0.4)" }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-3 rounded-full border border-white/20 text-white font-semibold text-sm transition-all bg-white/5 backdrop-blur-sm"
+              >
+                Download Resume
+              </motion.a>
+            </motion.div>
           </motion.div>
-        </Tilt>
+        </div>
 
-        <motion.h1
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-6xl md:text-7xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/40" // More vertical gradient for metallic feel
-        >
-          Nikhil Vashishtha
-        </motion.h1>
-
-        <motion.p
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xl md:text-2xl text-blue-200/80 font-light tracking-wide mb-12"
-        >
-          Welcome to My Personal Portfolio
-        </motion.p>
-      </section>
-
-      {/* Infinite Tech Marquee (Bottom Plate) */}
-      <div className="w-full relative z-20">
-        <InfiniteMarquee />
-      </div>
-
-      {/* About Section */}
-      <section className="py-24 px-8 bg-black/20 backdrop-blur-sm relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
+        {/* RIGHT SIDE: Action Photo (60%) */}
+        <div className="hidden md:block w-[60%] h-screen relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, x: 60 }}
+            animate={{
+              opacity: 1,
+              x: 0,
+              transition: { duration: 1, ease: "easeOut" }
+            }}
+            className="w-full h-full relative"
           >
-            <h2 className="text-4xl font-bold mb-8 text-white/90">About Me</h2>
-            <p className="text-lg md:text-xl leading-relaxed text-zinc-300">
-              With a strong foundation in Physics & Electronics, I bridge the gap between hardware and software.
-              I'm deeply passionate about Coding and creating intuitive digital experiences.
-              Whether it's designing circuits or architecting full-stack applications, I love solving complex problems.
-            </p>
+            {/* Drift Animation Container */}
+            <motion.div
+              animate={{ x: [0, -12, 0] }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="w-full h-full relative"
+            >
+              <Image
+                src="/hackathon.jpg"
+                alt="Hackathon Coding"
+                fill
+                className="object-cover object-center"
+                priority
+                style={{
+                  maskImage: 'linear-gradient(to right, transparent 0%, black 30%)',
+                  WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 30%)'
+                }}
+              />
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* Skills Dashboard */}
-      <section className="py-24 px-8 relative z-10">
-        <div className="max-w-4xl mx-auto">
-          <motion.h2
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+
+      {/* ── TECH MARQUEE ─────────────────────────────────────────── */}
+      <div className="w-full relative z-20">
+        <InfiniteMarquee />
+      </div>
+
+      {/* ── ABOUT + SKILLS ───────────────────────────────────────── */}
+      <section className="py-28 px-6 relative z-10">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+          {/* Left — About */}
+          <motion.div {...fadeUpView}>
+            <h2 className="text-4xl font-bold mb-6 text-white/90">About Me</h2>
+            <p className="text-base md:text-lg leading-relaxed text-zinc-300">
+              First-year CSE student at Chandigarh University. I build full-stack
+              applications, win hackathons, and integrate AI + IoT to solve real
+              problems. Currently seeking internship opportunities.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-zinc-400">
+              With a strong foundation in Physics &amp; Electronics, I bridge the
+              gap between hardware and software — whether it&apos;s designing circuits
+              or architecting full-stack apps.
+            </p>
+          </motion.div>
+
+          {/* Right — Donut charts */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl font-bold text-center mb-16 text-white/90"
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="grid grid-cols-3 gap-8 justify-items-center"
           >
-            My Skillset
+            <DonutChart percentage={85} color="#3b82f6" label="Electronics & IoT" delay={0.1} />
+            <DonutChart percentage={70} color="#10b981" label="Frontend Dev" delay={0.3} />
+            <DonutChart percentage={90} color="#8b5cf6" label="Leadership" delay={0.5} />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── ACHIEVEMENTS STRIP ───────────────────────────────────── */}
+      <section className="py-16 px-6 relative z-10">
+        <div className="max-w-5xl mx-auto">
+          <motion.h2
+            {...fadeUpView}
+            className="text-4xl font-bold text-center mb-12 text-white/90"
+          >
+            Achievements
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 justify-items-center">
-            <DonutChart
-              percentage={85}
-              color="#3b82f6" // blue-500
-              label="Electronics & IoT"
-              delay={0.2}
-            />
-            <DonutChart
-              percentage={70}
-              color="#10b981" // emerald-500
-              label="Frontend Dev"
-              delay={0.4}
-            />
-            <DonutChart
-              percentage={90}
-              color="#8b5cf6" // violet-500
-              label="Leadership"
-              delay={0.6}
-            />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {achievements.map((a, i) => (
+              <motion.div
+                key={a.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{
+                  y: -8,
+                  boxShadow: `0 20px 60px ${a.glow}`,
+                }}
+                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-7 flex flex-col gap-3 transition-all duration-300 cursor-default"
+              >
+                <span className="text-3xl">{a.emoji}</span>
+                <h3 className="text-base font-semibold text-white leading-snug">{a.title}</h3>
+                <p className="text-sm text-zinc-400">{a.sub}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

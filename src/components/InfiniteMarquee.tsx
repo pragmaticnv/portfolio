@@ -3,30 +3,46 @@
 import { motion } from "framer-motion";
 
 const skills = [
-    "React", "Next.js", "Tailwind CSS", "Python", "C++", "Arduino", "IoT", "Framer Motion", "TypeScript", "Node.js"
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Python",
+    "C++",
+    "Three.js",
+    "Arduino",
+    "IoT",
+    "Framer Motion",
+    "Node.js",
+    "Firebase",
+    "Tailwind CSS",
+    "WebGL",
+    "OpenAI API",
 ];
+
+// Double the list for seamless infinite loop
+const doubled = [...skills, ...skills];
 
 const InfiniteMarquee = () => {
     return (
-        <div className="relative w-full overflow-hidden py-4 bg-white/5 backdrop-blur-sm border-t border-white/10">
-            {/* Gradient Masks for fade effect at edges */}
-            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-black/20 to-transparent z-10"></div>
-            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-black/20 to-transparent z-10"></div>
+        <div className="relative w-full overflow-hidden py-5 bg-white/[0.03] backdrop-blur-sm border-y border-white/[0.06]">
+            {/* Left fade mask */}
+            <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-black to-transparent" />
+            {/* Right fade mask */}
+            <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-black to-transparent" />
 
             <motion.div
                 className="flex whitespace-nowrap"
-                animate={{ x: [0, -1000] }}
+                animate={{ x: ["0%", "-50%"] }}
                 transition={{
                     repeat: Infinity,
                     ease: "linear",
-                    duration: 20
+                    duration: 28,
                 }}
             >
-                {/* Repeated list for seamless loop */}
-                {[...skills, ...skills, ...skills, ...skills].map((skill, index) => (
+                {doubled.map((skill, index) => (
                     <span
                         key={index}
-                        className="mx-8 text-xl font-medium text-white/50 hover:text-white transition-colors cursor-default"
+                        className="mx-3 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm text-zinc-300 hover:text-white hover:border-white/25 transition-colors cursor-default select-none"
                     >
                         {skill}
                     </span>

@@ -1,35 +1,62 @@
 [
     {
         "id": 1,
-        "title": "MindCanvas",
-        "description": "An AI-powered brainstorming tool that helps users generate and organize ideas visually.",
+        "title": "SafeMap AI",
+        "description": "Real-time global travel safety platform with a 3D WebGL globe, AI-powered chatbot, and serverless backend. Won 3rd Place at Escape The Vincii '26 against 100+ teams.",
         "tech": [
             "Next.js",
-            "OpenAI API",
-            "React Flow"
+            "Three.js",
+            "OpenRouter API",
+            "Google Maps API"
         ],
-        "link": "https://mindcanvas.app"
+        "award": "3rd Place · Escape The Vincii '26 · ₹20,000 prize",
+        "link": "https://github.com/pragmaticnv/safemap"
     },
     {
         "id": 2,
-        "title": "SmartHome Hub",
-        "description": "A centralized dashboard to control IoT devices with voice commands and automation scripts.",
+        "title": "Women Safety SOS Device",
+        "description": "IoT hardware device for rural women's safety featuring GPS tracking and instant voice distress alerts. Built for the IIT Delhi Build for Rural India Hackathon.",
         "tech": [
-            "React",
-            "Node.js",
-            "MQTT"
+            "Arduino",
+            "GPS Module",
+            "IoT",
+            "Voice Messaging"
         ],
-        "link": "https://github.com/user/smarthome-hub"
+        "award": "IIT Delhi Build for Rural India Hackathon",
+        "link": "https://github.com/pragmaticnv/women-safety-sos"
     },
     {
         "id": 3,
-        "title": "Portfolio v1",
-        "description": "My previous portfolio site built with Gatsby and styled components.",
+        "title": "VANGUARD Digital Twin",
+        "description": "Heritage site protection system using IoT sensors paired with a live web dashboard. Monitors environmental conditions in real time to preserve cultural landmarks.",
         "tech": [
-            "Gatsby",
-            "GraphQL",
-            "Styled Components"
+            "Arduino",
+            "IoT",
+            "Web Dashboard"
         ],
-        "link": "https://v1.portfolio.com"
+        "award": "AI Fest / Tech4SDG Ideathon 2.0",
+        "link": "https://github.com/pragmaticnv/vanguard"
+    },
+    {
+        "id": 4,
+        "title": "MindCanvas",
+        "description": "Anonymous collaborative mental health diary with real-time sync. A safe space for users to express thoughts, track moods, and connect with others anonymously.",
+        "tech": [
+            "Node.js",
+            "Firebase Firestore",
+            "Firebase Auth"
+        ],
+        "link": "https://github.com/pragmaticnv/mindcanvas"
+    },
+    {
+        "id": 5,
+        "title": "RevvUp",
+        "description": "Car modification ecosystem with a build tracker, community showcase, and vendor connections. Helps enthusiasts plan, track, and share vehicle build projects.",
+        "tech": [
+            "Next.js",
+            "Tailwind CSS",
+            "Firebase"
+        ],
+        "link": "https://github.com/pragmaticnv/revvup"
     }
 ]
