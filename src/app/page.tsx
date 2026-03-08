@@ -91,7 +91,7 @@ export default function Home() {
                   {/* Photo Container */}
                   <div className="relative w-full h-full bg-black rounded-2xl overflow-hidden z-10 border border-white/10">
                     <Image
-                      src="/profilephoto.png"
+                      src="/profilephoto_v2.jpg"
                       alt="Nikhil Vashishtha"
                       fill
                       className="object-cover"
