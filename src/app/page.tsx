@@ -45,13 +45,13 @@ const achievements = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen text-white pb-0 relative overflow-x-hidden">
+    <main className="min-h-screen text-foreground pb-0 relative overflow-x-hidden bg-background transition-colors duration-300">
       <Spotlight />
 
       {/* ── HERO ─────────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex flex-col md:flex-row items-center overflow-hidden bg-black">
+      <section className="relative min-h-screen flex flex-col md:flex-row items-center overflow-hidden bg-background">
         {/* Background Radial Glow (Left Side) */}
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-blue-900/40 rounded-full blur-[120px] pointer-events-none z-0" />
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/10 dark:bg-blue-900/40 rounded-full blur-[120px] pointer-events-none z-0" />
 
         {/* LEFT SIDE: Content (40%) */}
         <div className="w-full md:w-[40%] flex flex-col items-center justify-center px-6 md:px-12 z-20 pt-24 md:pt-0">
@@ -89,9 +89,9 @@ export default function Home() {
                   />
 
                   {/* Photo Container */}
-                  <div className="relative w-full h-full bg-black rounded-2xl overflow-hidden z-10 border border-white/10">
+                  <div className="relative w-full h-full bg-background rounded-2xl overflow-hidden z-10 border border-foreground/10">
                     <Image
-                      src="/profilephoto_v2.jpg"
+                      src="/profilephoto_v7.png"
                       alt="Nikhil Vashishtha"
                       fill
                       className="object-cover"
@@ -113,7 +113,7 @@ export default function Home() {
                 initial: { opacity: 0, y: 20 },
                 animate: { opacity: 1, y: 0, transition: { duration: 0.5 } }
               }}
-              className="text-4xl md:text-5xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 via-white to-blue-300"
+              className="text-4xl md:text-5xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-foreground to-blue-400 dark:from-blue-200 dark:via-white dark:to-blue-300"
             >
               Nikhil Vashishtha
             </motion.h1>
@@ -124,7 +124,7 @@ export default function Home() {
                 initial: { opacity: 0, y: 20 },
                 animate: { opacity: 1, y: 0, transition: { duration: 0.5 } }
               }}
-              className="text-lg text-blue-200/70 font-medium mb-1"
+              className="text-lg text-blue-600/70 dark:text-blue-200/70 font-medium mb-1"
             >
               Full-Stack Developer · Hackathon Winner
             </motion.p>
@@ -135,7 +135,7 @@ export default function Home() {
                 initial: { opacity: 0, y: 20 },
                 animate: { opacity: 1, y: 0, transition: { duration: 0.5 } }
               }}
-              className="text-sm text-zinc-400 mb-6"
+              className="text-sm text-zinc-500 dark:text-zinc-400 mb-6"
             >
               📍 Mohali · Chandigarh University
             </motion.p>
@@ -152,16 +152,16 @@ export default function Home() {
                 href="/projects"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition-colors shadow-lg shadow-blue-900/20"
+                className="px-8 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition-colors shadow-lg shadow-blue-500/20"
               >
                 View Projects
               </motion.a>
               <motion.a
                 href="/resume.pdf"
                 download
-                whileHover={{ scale: 1.05, borderColor: "rgba(255,255,255,0.4)" }}
+                whileHover={{ scale: 1.05, borderColor: "rgba(0,0,0,0.2)", backgroundColor: "rgba(0,0,0,0.05)" }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 rounded-full border border-white/20 text-white font-semibold text-sm transition-all bg-white/5 backdrop-blur-sm"
+                className="px-8 py-3 rounded-full border border-foreground/10 text-foreground font-semibold text-sm transition-all bg-foreground/5 backdrop-blur-sm shadow-sm"
               >
                 Download Resume
               </motion.a>
@@ -191,7 +191,7 @@ export default function Home() {
               className="w-full h-full relative"
             >
               <Image
-                src="/hackathon.jpg"
+                src="/hackathon_actual.jpg"
                 alt="Hackathon Coding"
                 fill
                 className="object-cover object-center"
@@ -208,23 +208,23 @@ export default function Home() {
 
 
       {/* ── TECH MARQUEE ─────────────────────────────────────────── */}
-      <div className="w-full relative z-20">
+      <div className="w-full relative z-20 border-y border-foreground/5 bg-background/50 backdrop-blur-sm">
         <InfiniteMarquee />
       </div>
 
       {/* ── ABOUT + SKILLS ───────────────────────────────────────── */}
-      <section className="py-28 px-6 relative z-10">
+      <section className="py-28 px-6 relative z-10 bg-background transition-colors duration-300">
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
           {/* Left — About */}
           <motion.div {...fadeUpView}>
-            <h2 className="text-4xl font-bold mb-6 text-white/90">About Me</h2>
-            <p className="text-base md:text-lg leading-relaxed text-zinc-300">
+            <h2 className="text-4xl font-bold mb-6 text-foreground/90">About Me</h2>
+            <p className="text-base md:text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">
               First-year CSE student at Chandigarh University. I build full-stack
               applications, win hackathons, and integrate AI + IoT to solve real
               problems. Currently seeking internship opportunities.
             </p>
-            <p className="mt-4 text-base leading-relaxed text-zinc-400">
+            <p className="mt-4 text-base leading-relaxed text-zinc-500 dark:text-zinc-400">
               With a strong foundation in Physics &amp; Electronics, I bridge the
               gap between hardware and software — whether it&apos;s designing circuits
               or architecting full-stack apps.
@@ -251,7 +251,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto">
           <motion.h2
             {...fadeUpView}
-            className="text-4xl font-bold text-center mb-12 text-white/90"
+            className="text-4xl font-bold text-center mb-12 text-foreground/90"
           >
             Achievements
           </motion.h2>
@@ -268,11 +268,11 @@ export default function Home() {
                   y: -8,
                   boxShadow: `0 20px 60px ${a.glow}`,
                 }}
-                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-7 flex flex-col gap-3 transition-all duration-300 cursor-default"
+                className="bg-foreground/5 backdrop-blur-md border border-foreground/10 rounded-2xl p-7 flex flex-col gap-3 transition-all duration-300 cursor-default"
               >
                 <span className="text-3xl">{a.emoji}</span>
-                <h3 className="text-base font-semibold text-white leading-snug">{a.title}</h3>
-                <p className="text-sm text-zinc-400">{a.sub}</p>
+                <h3 className="text-base font-semibold text-foreground leading-snug">{a.title}</h3>
+                <p className="text-sm text-zinc-500 dark:text-zinc-400">{a.sub}</p>
               </motion.div>
             ))}
           </div>

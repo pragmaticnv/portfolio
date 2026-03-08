@@ -7,14 +7,14 @@ const MapCard = () => {
     return (
         <motion.div
             whileHover={{ scale: 1.05 }}
-            className="col-span-1 md:col-span-1 bg-white dark:bg-zinc-800 rounded-xl p-6 shadow-lg border border-zinc-200 dark:border-zinc-700 overflow-hidden relative"
+            className="col-span-1 md:col-span-1 bg-background rounded-xl p-6 shadow-lg border border-foreground/10 overflow-hidden relative"
         >
-            <h3 className="text-lg font-semibold text-zinc-800 dark:text-white mb-2">Travel Map</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-2">Travel Map</h3>
             <div className="flex flex-col gap-2">
                 {travelData.slice(0, 3).map((trip) => (
                     <div key={trip.id} className="flex justify-between items-center text-sm">
-                        <span className="text-zinc-600 dark:text-zinc-300">{trip.place}</span>
-                        <span className="text-xs text-zinc-400">{trip.visited}</span>
+                        <span className="text-zinc-600 dark:text-zinc-400">{trip.place}</span>
+                        <span className="text-xs text-zinc-400 dark:text-zinc-500">{trip.visited}</span>
                     </div>
                 ))}
             </div>

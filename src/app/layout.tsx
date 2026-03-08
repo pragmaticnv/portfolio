@@ -19,6 +19,7 @@ export const metadata: Metadata = {
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Providers } from "@/components/Providers";
 
 export default function RootLayout({
   children,
@@ -26,18 +27,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen text-white bg-black`}
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 50% at 50% 0%, #1e3a8a 0%, #111827 45%, #000000 100%)",
-          backgroundColor: "#000000",
-        }}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen text-foreground bg-background`}
       >
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <Providers>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

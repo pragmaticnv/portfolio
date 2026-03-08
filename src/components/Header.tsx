@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Home, GraduationCap, Plane, Headphones, Layers, Mail } from "lucide-react";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
     { icon: Home, href: "/", label: "Home" },
@@ -17,16 +18,18 @@ const navItems = [
 
 export default function Header() {
     return (
-        <div className="fixed top-4 left-0 right-0 z-50 flex justify-center pointer-events-none">
+        <div className="fixed top-4 left-0 right-0 z-50 flex justify-center pointer-events-none px-4">
             <motion.nav
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                className="pointer-events-auto flex items-center gap-1 md:gap-2 bg-black/40 backdrop-blur-xl border border-white/10 rounded-full px-2 md:px-4 py-2 shadow-[0_0_30px_rgba(0,0,0,0.5)]"
+                className="pointer-events-auto flex items-center gap-1 md:gap-2 bg-background/40 backdrop-blur-xl border border-foreground/10 rounded-full px-2 md:px-3 py-1.5 md:py-2 shadow-lg"
             >
                 {navItems.map((item) => (
                     <NavItem key={item.label} item={item} />
                 ))}
+                <div className="w-[1px] h-4 bg-foreground/10 mx-1 hidden md:block" />
+                <ThemeToggle />
             </motion.nav>
         </div>
     );

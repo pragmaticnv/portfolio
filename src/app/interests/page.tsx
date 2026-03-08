@@ -46,21 +46,21 @@ export default function InterestsPage() {
     };
 
     return (
-        <main className="min-h-screen px-4 pb-20 pt-24 flex flex-col items-center overflow-hidden">
+        <main className="min-h-screen px-4 pb-20 pt-24 flex flex-col items-center overflow-hidden bg-background text-foreground transition-colors duration-300">
 
             {/* Header / Nav */}
             <div className="w-full max-w-7xl flex flex-col items-start mb-8 lg:px-8">
                 <Link
                     href="/"
-                    className="text-white/60 hover:text-white font-medium flex items-center gap-2 transition-colors border border-white/10 bg-white/5 px-4 py-2 rounded-full mb-6"
+                    className="text-foreground/60 hover:text-foreground font-medium flex items-center gap-2 transition-colors border border-foreground/10 bg-foreground/5 px-4 py-2 rounded-full mb-6"
                 >
                     <ArrowLeft className="w-4 h-4" /> Back to Home
                 </Link>
 
-                <h1 className="text-4xl md:text-5xl font-bold text-white bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-white">
+                <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-purple-400 dark:from-purple-200 dark:to-white">
                     My Interests
                 </h1>
-                <p className="text-zinc-400 mt-2 max-w-xl">
+                <p className="text-zinc-600 dark:text-zinc-400 mt-2 max-w-xl">
                     Explore my hobbies and passions. Click on a card to learn more.
                 </p>
             </div>
@@ -70,7 +70,7 @@ export default function InterestsPage() {
                 {/* Navigation Arrow */}
                 <button
                     onClick={() => scrollContainer('right')}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 hover:bg-white/20 transition-all hidden md:flex items-center justify-center text-white shadow-xl"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-3 bg-foreground/10 backdrop-blur-md rounded-full border border-foreground/20 hover:bg-foreground/20 transition-all hidden md:flex items-center justify-center text-foreground shadow-xl"
                 >
                     <ChevronRight className="w-8 h-8" />
                 </button>
@@ -89,7 +89,7 @@ export default function InterestsPage() {
                             animate={{
                                 opacity: 1,
                                 scale: activeId === interest.id ? 1.05 : 1,
-                                borderColor: activeId === interest.id ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.1)'
+                                borderColor: activeId === interest.id ? 'rgba(var(--foreground-rgb),0.5)' : 'rgba(var(--foreground-rgb),0.1)'
                             }}
                             transition={{ duration: 0.3 }}
                             className={`
@@ -123,7 +123,7 @@ export default function InterestsPage() {
                             {activeId === interest.id && (
                                 <motion.div
                                     layoutId="active-glow"
-                                    className="absolute inset-0 rounded-3xl border-2 border-white/40 pointer-events-none"
+                                    className="absolute inset-0 rounded-3xl border-2 border-foreground/40 pointer-events-none"
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                 />
@@ -142,17 +142,17 @@ export default function InterestsPage() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.4 }}
-                        className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden"
+                        className="bg-foreground/5 backdrop-blur-xl border border-foreground/10 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden"
                     >
                         {/* Background Decor */}
                         <div className="absolute -top-20 -right-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
                         <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
 
                         <div className="relative z-10 flex flex-col items-center">
-                            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 transition-colors">
                                 {activeInterest.name}
                             </h2>
-                            <p className="text-lg md:text-xl text-zinc-300 leading-relaxed max-w-2xl">
+                            <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-2xl transition-colors">
                                 {activeInterest.longDescription}
                             </p>
                         </div>
@@ -167,13 +167,13 @@ export default function InterestsPage() {
                 transition={{ delay: 1, duration: 0.8 }}
                 className="fixed bottom-6 right-6 z-50 w-[300px] hidden md:block"
             >
-                <div className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden hover:scale-105 transition-transform duration-300">
-                    <div className="p-3 border-b border-white/5 flex items-center gap-2">
+                <div className="bg-background/60 backdrop-blur-xl border border-foreground/10 rounded-2xl shadow-2xl overflow-hidden hover:scale-105 transition-transform duration-300">
+                    <div className="p-3 border-b border-foreground/5 flex items-center gap-2">
                         <span className="text-green-500 text-xs">●</span>
-                        <span className="text-xs font-medium text-white/50 uppercase tracking-widest">Soundtrack</span>
+                        <span className="text-xs font-medium text-foreground/50 uppercase tracking-widest">Soundtrack</span>
                     </div>
                     <div className="p-0">
-                        <SpotifyCard /> {/* Assuming SpotifyCard fits or we might need to adjust styles via CSS if it has fixed dimensions */}
+                        <SpotifyCard />
                     </div>
                 </div>
             </motion.div>

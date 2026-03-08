@@ -30,18 +30,18 @@ export default function ProjectsPage() {
     });
 
     return (
-        <main ref={containerRef} className="min-h-screen px-6 pb-32 pt-24 relative overflow-hidden bg-black text-white selection:bg-blue-500/30">
+        <main ref={containerRef} className="min-h-screen px-6 pb-32 pt-24 relative overflow-hidden bg-background text-foreground transition-colors duration-300 selection:bg-blue-500/30">
             {/* --- PREMIUM BACKGROUND OVERLAY --- */}
             <div className="fixed inset-0 pointer-events-none -z-10">
                 {/* Geometric Grid */}
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,currentColor_1px,transparent_1px),linear-gradient(to_bottom,currentColor_1px,transparent_1px)] bg-[size:64px_64px] opacity-[0.03] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
 
                 {/* Noise Texture */}
-                <div className="absolute inset-0 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] brightness-100 contrast-150" />
+                <div className="absolute inset-0 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] brightness-100 dark:brightness-100 contrast-150" />
 
                 {/* Ambient Glows */}
-                <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-900/10 blur-[180px] rounded-full animate-pulse" />
-                <div className="absolute bottom-[20%] right-[-10%] w-[45%] h-[45%] bg-violet-900/10 blur-[180px] rounded-full" />
+                <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-600/5 dark:bg-blue-900/10 blur-[180px] rounded-full animate-pulse" />
+                <div className="absolute bottom-[20%] right-[-10%] w-[45%] h-[45%] bg-violet-600/5 dark:bg-violet-900/10 blur-[180px] rounded-full" />
 
                 {/* Floating Particles (Fake Parallax) */}
                 <div className="absolute inset-0 overflow-hidden">
@@ -58,7 +58,7 @@ export default function ProjectsPage() {
                                 repeat: Infinity,
                                 ease: "linear"
                             }}
-                            className="absolute w-1 h-1 bg-white rounded-full"
+                            className="absolute w-1 h-1 bg-foreground rounded-full opacity-20"
                             style={{
                                 top: `${Math.random() * 100}%`,
                                 left: `${Math.random() * 100}%`,
@@ -70,10 +70,10 @@ export default function ProjectsPage() {
 
             <div className="max-w-5xl mx-auto relative">
                 {/* --- SCROLL PROGRESS LINE --- */}
-                <div className="absolute left-[-40px] top-64 bottom-40 w-[1px] bg-white/5 hidden xl:block">
+                <div className="absolute left-[-40px] top-64 bottom-40 w-[1px] bg-foreground/5 hidden xl:block">
                     <motion.div
                         style={{ scaleY }}
-                        className="absolute top-0 w-full h-full bg-gradient-to-b from-blue-500 via-violet-500 to-transparent origin-top shadow-[0_0_15px_rgba(59,130,246,0.5)]"
+                        className="absolute top-0 w-full h-full bg-gradient-to-b from-blue-500 via-violet-500 to-transparent origin-top shadow-[0_0_15px_rgba(59,130,246,0.3)]"
                     />
                 </div>
 
@@ -85,9 +85,9 @@ export default function ProjectsPage() {
                 >
                     <Link
                         href="/"
-                        className="group inline-flex items-center gap-2 text-zinc-500 hover:text-white transition-colors"
+                        className="group inline-flex items-center gap-2 text-zinc-500 hover:text-foreground transition-colors"
                     >
-                        <div className="p-1.5 rounded-full bg-white/5 border border-white/10 group-hover:border-white/20 transition-all">
+                        <div className="p-1.5 rounded-full bg-foreground/5 border border-foreground/10 group-hover:border-foreground/20 transition-all">
                             <ArrowLeft className="w-3.5 h-3.5" />
                         </div>
                         <span className="text-xs font-medium tracking-wide uppercase">Back</span>
@@ -101,14 +101,14 @@ export default function ProjectsPage() {
                     transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                     className="mb-20 md:mb-32 relative z-10"
                 >
-                    <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 md:mb-6 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[9px] md:text-[10px] font-bold tracking-[0.2em] uppercase">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 md:mb-6 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-[9px] md:text-[10px] font-bold tracking-[0.2em] uppercase">
                         Portfolio Pipeline
                     </div>
-                    <h1 className="text-4xl md:text-7xl font-black tracking-tight mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-zinc-700">
+                    <h1 className="text-4xl md:text-7xl font-black tracking-tight mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-b from-foreground via-foreground to-zinc-400 dark:from-white dark:via-white dark:to-zinc-700">
                         My Projects
                     </h1>
-                    <p className="text-base md:text-lg text-zinc-400 max-w-2xl leading-relaxed font-medium">
-                        Crafting digital experiences through high-performance code and innovative design. Explore a decade of evolution in full-stack engineering and IoT.
+                    <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed font-medium">
+                        Crafting digital experiences through high-performance code and innovative design. Explore evolution in full-stack engineering and IoT.
                     </p>
                 </motion.div>
 
@@ -129,19 +129,19 @@ export default function ProjectsPage() {
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    className="mt-32 md:mt-48 text-center border-t border-white/5 pt-16 md:pt-24"
+                    className="mt-32 md:mt-48 text-center border-t border-foreground/5 pt-16 md:pt-24"
                 >
                     <p className="text-zinc-500 font-mono text-[10px] md:text-xs uppercase tracking-[0.3em] mb-4">Collaboration</p>
-                    <h2 className="text-2xl md:text-4xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-500">
+                    <h2 className="text-2xl md:text-4xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-zinc-400 dark:from-white dark:to-zinc-500 transition-colors">
                         Interested in working together?
                     </h2>
                     <Link
                         href="/contact"
-                        className="group relative inline-flex items-center gap-2 px-8 md:px-10 py-3 md:py-4 rounded-full bg-white text-black font-extrabold transition-all overflow-hidden"
+                        className="group relative inline-flex items-center gap-2 px-8 md:px-10 py-3 md:py-4 rounded-full bg-foreground text-background font-extrabold transition-all overflow-hidden"
                     >
                         <span className="relative z-10 text-xs md:text-sm">Start a Project</span>
                         <motion.div
-                            className="absolute inset-0 bg-blue-500 translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+                            className="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300"
                         />
                     </Link>
                 </motion.div>
@@ -160,7 +160,99 @@ export default function ProjectsPage() {
     );
 }
 
-// ... ProjectItem function ...
+function ProjectItem({ project, index, onViewDetails }: { project: any; index: number; onViewDetails: () => void }) {
+    const accentClass = projectAccents[index % projectAccents.length];
+
+    return (
+        <motion.section
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="relative group"
+        >
+            {/* Background Number */}
+            <div className="absolute -left-12 -top-12 text-[120px] md:text-[240px] font-black text-foreground/[0.03] select-none z-0 hidden md:block">
+                0{index + 1}
+            </div>
+
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 items-start">
+                <div className="lg:col-span-5 space-y-4 md:space-y-6">
+                    {"award" in project && project.award && (
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 text-[8px] md:text-[10px] font-black tracking-widest uppercase">
+                            <Trophy className="w-3 h-3 md:w-3.5 h-3.5" />
+                            {project.award}
+                        </div>
+                    )}
+                    <h2 className="text-3xl md:text-6xl font-black tracking-tighter leading-none group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        {project.title}
+                    </h2>
+                    <p className="text-sm md:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">
+                        {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 pt-2">
+                        {project.tech.map((t: string) => (
+                            <span key={t} className="px-3 py-1 rounded-lg bg-foreground/5 border border-foreground/10 text-[9px] font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest">
+                                {t}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+
+                <div className="lg:col-span-7">
+                    <div className={`relative aspect-[16/10] rounded-2xl md:rounded-[2rem] overflow-hidden border border-foreground/10 bg-gradient-to-br ${accentClass} group/img shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]`}>
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-background/40 backdrop-blur-sm z-20">
+                            <div className="flex gap-4">
+                                {"github" in project && project.github && (
+                                    <Link
+                                        href={project.github}
+                                        target="_blank"
+                                        className="p-3 md:p-4 rounded-full bg-foreground text-background hover:scale-110 transition-transform shadow-xl"
+                                        title="View GitHub"
+                                    >
+                                        <Github className="w-5 h-5 md:w-6 h-6" />
+                                    </Link>
+                                )}
+                                {"live" in project && project.live && (
+                                    <Link
+                                        href={project.live}
+                                        target="_blank"
+                                        className="p-3 md:p-4 rounded-full bg-blue-600 text-white hover:scale-110 transition-transform shadow-xl"
+                                        title="Live Demo"
+                                    >
+                                        <Globe className="w-5 h-5 md:w-6 h-6" />
+                                    </Link>
+                                )}
+                                <button
+                                    onClick={onViewDetails}
+                                    className="p-3 md:p-4 rounded-full bg-zinc-600 text-white hover:scale-110 transition-transform shadow-xl"
+                                    title="View Details"
+                                >
+                                    <Eye className="w-5 h-5 md:w-6 h-6" />
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Floating Tech Icons Overlay (Decorative) */}
+                        <div className="absolute top-6 right-6 flex flex-col gap-3 group-hover:translate-x-2 transition-transform duration-500 opacity-20">
+                            <Cpu className="w-8 h-8 md:w-12 h-12 text-foreground" />
+                        </div>
+                    </div>
+
+                    <div className="mt-6 md:mt-8 flex flex-wrap gap-4 md:gap-6 justify-end items-center">
+                        <button
+                            onClick={onViewDetails}
+                            className="inline-flex items-center gap-2 text-zinc-500 dark:text-zinc-600 hover:text-foreground text-[10px] md:text-xs font-black uppercase tracking-[.25em] transition-all group/btn"
+                        >
+                            <span className="border-b border-transparent group-hover/btn:border-foreground pb-1">Detailed Case Study</span>
+                            <Cpu className="w-3 h-3 group-hover/btn:rotate-12 transition-transform" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </motion.section>
+    );
+}
 
 function ProjectModal({ project, onClose }: { project: any; onClose: () => void }) {
     return (
@@ -170,37 +262,37 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={onClose}
-                className="absolute inset-0 bg-black/90 backdrop-blur-xl"
+                className="absolute inset-0 bg-background/80 backdrop-blur-xl"
             />
             <motion.div
                 initial={{ opacity: 0, scale: 0.95, y: 40 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 40 }}
                 transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                className="relative w-full max-w-4xl bg-zinc-950/50 border border-white/10 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl backdrop-blur-2xl"
+                className="relative w-full max-w-4xl bg-background/50 border border-foreground/10 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl backdrop-blur-2xl"
             >
                 {/* Background Accent Grid in Modal */}
-                <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] bg-[size:32px_32px] -z-10" />
+                <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,currentColor_1px,transparent_1px),linear-gradient(to_bottom,currentColor_1px,transparent_1px)] bg-[size:32px_32px] -z-10" />
 
                 <div className="p-6 md:p-16 max-h-[90vh] overflow-y-auto custom-scrollbar">
                     <button
                         onClick={onClose}
-                        className="absolute top-4 md:top-8 right-4 md:right-8 p-2 md:p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all group z-10"
+                        className="absolute top-4 md:top-8 right-4 md:right-8 p-2 md:p-3 rounded-full bg-foreground/5 border border-foreground/10 hover:bg-foreground/10 transition-all group z-10"
                     >
                         <X className="w-4 h-4 md:w-5 h-5 group-hover:rotate-90 transition-transform" />
                     </button>
 
                     <div className="mb-8 md:mb-12">
                         {"award" in project && project.award && (
-                            <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1 mb-4 md:mb-6 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-[8px] md:text-[10px] font-black tracking-widest uppercase">
+                            <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1 mb-4 md:mb-6 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 text-[8px] md:text-[10px] font-black tracking-widest uppercase">
                                 <Trophy className="w-3 h-3 md:w-4 h-4" />
                                 {project.award}
                             </div>
                         )}
-                        <h2 className="text-3xl md:text-7xl font-black mb-4 md:mb-6 tracking-tight leading-[1.1]">{project.title}</h2>
+                        <h2 className="text-3xl md:text-7xl font-black mb-4 md:mb-6 tracking-tight leading-[1.1] text-foreground">{project.title}</h2>
                         <div className="flex flex-wrap gap-2">
                             {project.tech.map((t: string) => (
-                                <span key={t} className="px-3 md:px-4 py-1.5 md:py-2 rounded-lg md:rounded-xl bg-white/5 border border-white/10 text-[8px] md:text-[10px] font-black text-zinc-400 uppercase tracking-[0.2em] shadow-sm">
+                                <span key={t} className="px-3 md:px-4 py-1.5 md:py-2 rounded-lg md:rounded-xl bg-foreground/5 border border-foreground/10 text-[8px] md:text-[10px] font-black text-zinc-500 dark:text-zinc-400 uppercase tracking-[0.2em] shadow-sm">
                                     {t}
                                 </span>
                             ))}
@@ -210,19 +302,19 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12">
                         <div className="lg:col-span-7 space-y-8 md:space-y-10">
                             <div>
-                                <h3 className="text-zinc-600 text-[8px] md:text-[10px] font-black uppercase tracking-[0.4em] mb-4 md:mb-6">Execution Overview</h3>
-                                <p className="text-zinc-300 text-base md:text-xl leading-relaxed font-medium">
+                                <h3 className="text-zinc-400 dark:text-zinc-600 text-[8px] md:text-[10px] font-black uppercase tracking-[0.4em] mb-4 md:mb-6">Execution Overview</h3>
+                                <p className="text-zinc-600 dark:text-zinc-300 text-base md:text-xl leading-relaxed font-medium">
                                     {project.longDescription || project.description}
                                 </p>
                             </div>
 
                             {project.features && (
                                 <div>
-                                    <h3 className="text-zinc-600 text-[8px] md:text-[10px] font-black uppercase tracking-[0.4em] mb-4 md:mb-6">Project Capabilities</h3>
+                                    <h3 className="text-zinc-400 dark:text-zinc-600 text-[8px] md:text-[10px] font-black uppercase tracking-[0.4em] mb-4 md:mb-6">Project Capabilities</h3>
                                     <ul className="space-y-3 md:space-y-4">
                                         {project.features.map((feature: string) => (
-                                            <li key={feature} className="flex items-center gap-3 md:gap-4 text-zinc-400 text-sm md:text-base group">
-                                                <div className="w-1 md:w-1.5 h-1 md:h-1.5 rounded-full bg-blue-500 group-hover:scale-150 transition-transform" />
+                                            <li key={feature} className="flex items-center gap-3 md:gap-4 text-zinc-600 dark:text-zinc-400 text-sm md:text-base group">
+                                                <div className="w-1 md:w-1.5 h-1 md:h-1.5 rounded-full bg-blue-600 dark:bg-blue-500 group-hover:scale-150 transition-transform" />
                                                 <span className="font-medium">{feature}</span>
                                             </li>
                                         ))}
@@ -231,28 +323,28 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
                             )}
                         </div>
 
-                        <div className="lg:col-span-5 border-l border-white/5 pl-8 md:pl-12 hidden lg:block">
-                            <h3 className="text-zinc-600 text-[10px] font-black uppercase tracking-[0.4em] mb-8">Metadata</h3>
+                        <div className="lg:col-span-5 border-l border-foreground/5 pl-8 md:pl-12 hidden lg:block">
+                            <h3 className="text-zinc-400 dark:text-zinc-600 text-[10px] font-black uppercase tracking-[0.4em] mb-8">Metadata</h3>
                             <div className="space-y-6">
                                 <div>
                                     <p className="text-zinc-500 text-xs font-bold mb-1">Status</p>
-                                    <p className="text-white font-black uppercase tracking-widest text-xs">Completed</p>
+                                    <p className="text-foreground font-black uppercase tracking-widest text-xs">Completed</p>
                                 </div>
                                 <div>
                                     <p className="text-zinc-500 text-xs font-bold mb-1">Role</p>
-                                    <p className="text-white font-black uppercase tracking-widest text-xs">Lead Developer</p>
+                                    <p className="text-foreground font-black uppercase tracking-widest text-xs">Lead Developer</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div className="flex flex-wrap gap-3 md:gap-4 mt-12 md:mt-20 pt-8 md:pt-10 border-t border-white/10">
+                    <div className="flex flex-wrap gap-3 md:gap-4 mt-12 md:mt-20 pt-8 md:pt-10 border-t border-foreground/10">
                         {"github" in project && project.github && (
                             <a
                                 href={project.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 rounded-xl md:rounded-2xl bg-white text-black font-black text-[10px] md:text-xs uppercase tracking-widest transition-transform hover:scale-[1.02]"
+                                className="flex items-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 rounded-xl md:rounded-2xl bg-foreground text-background font-black text-[10px] md:text-xs uppercase tracking-widest transition-transform hover:scale-[1.02]"
                             >
                                 <Github className="w-4 h-4 md:w-5 h-5" />
                                 Github Repo

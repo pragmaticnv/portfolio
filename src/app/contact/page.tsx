@@ -39,8 +39,8 @@ const socialLinks = [
 
 export default function ContactPage() {
     return (
-        <main className="min-h-screen pt-24 flex justify-center items-center">
-            <div className="max-w-5xl w-full flex flex-col items-center">
+        <main className="min-h-screen pt-24 pb-20 flex justify-center items-center bg-background text-foreground transition-colors duration-300">
+            <div className="max-w-5xl w-full flex flex-col items-center px-4">
 
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
@@ -49,7 +49,7 @@ export default function ContactPage() {
                 >
                     <Link
                         href="/"
-                        className="text-slate-300 hover:text-white font-medium flex items-center gap-2 transition-colors px-4 py-2 rounded-full hover:bg-white/5"
+                        className="text-foreground/60 hover:text-foreground font-medium flex items-center gap-2 transition-colors px-4 py-2 rounded-full hover:bg-foreground/5 border border-foreground/10"
                     >
                         <ArrowLeft className="w-5 h-5" /> Back to Home
                     </Link>
@@ -61,10 +61,10 @@ export default function ContactPage() {
                     transition={{ duration: 0.6 }}
                     className="w-full text-center"
                 >
-                    <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-white">
+                    <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-200 dark:to-white">
                         Let's Connect
                     </h1>
-                    <p className="text-slate-400 mb-12 max-w-lg mx-auto text-lg">
+                    <p className="text-zinc-600 dark:text-zinc-400 mb-12 max-w-lg mx-auto text-lg">
                         Feel free to reach out for collaborations, project discussions, or just to say hi!
                     </p>
 
@@ -87,7 +87,7 @@ export default function ContactPage() {
                                     whileTap={{ scale: 0.98 }}
                                     className={`
                                 group relative overflow-hidden
-                                bg-slate-900/40 backdrop-blur-md border border-white/10 
+                                bg-foreground/5 backdrop-blur-md border border-foreground/10 
                                 rounded-2xl p-8 
                                 flex flex-col items-center justify-center gap-4 
                                 shadow-lg hover:shadow-2xl transition-all duration-300
@@ -99,16 +99,16 @@ export default function ContactPage() {
 
                                     {/* Glowing Icon Border */}
                                     <div className={`
-                                p-4 rounded-full bg-white/5 border border-white/10 
-                                group-hover:border-white/30 group-hover:bg-white/10 
+                                p-4 rounded-full bg-foreground/5 border border-foreground/10 
+                                group-hover:border-foreground/30 group-hover:bg-foreground/10 
                                 transition-all duration-300
                                 relative z-10
                             `}>
-                                        <Icon className="w-8 h-8 text-white/80 group-hover:text-white transition-colors" />
+                                        <Icon className="w-8 h-8 text-foreground/80 group-hover:text-foreground transition-colors" />
                                     </div>
 
                                     <div className="flex flex-col items-center relative z-10">
-                                        <span className="font-semibold text-lg text-white/90 group-hover:text-white">
+                                        <span className="font-semibold text-lg text-foreground/90 group-hover:text-foreground">
                                             {social.name}
                                         </span>
                                     </div>
