@@ -10,7 +10,8 @@
             "Google Maps API"
         ],
         "award": "3rd Place · Escape The Vincii '26 · ₹20,000 prize",
-        "link": "https://github.com/pragmaticnv/safemap"
+        "github": "https://github.com/pragmaticnv/safemap",
+        "live": "https://safemap-ai.vercel.app"
     },
     {
         "id": 2,
@@ -23,7 +24,7 @@
             "Voice Messaging"
         ],
         "award": "IIT Delhi Build for Rural India Hackathon",
-        "link": "https://github.com/pragmaticnv/women-safety-sos"
+        "github": "https://github.com/pragmaticnv/women-safety-sos"
     },
     {
         "id": 3,
@@ -35,7 +36,7 @@
             "Web Dashboard"
         ],
         "award": "AI Fest / Tech4SDG Ideathon 2.0",
-        "link": "https://github.com/pragmaticnv/vanguard"
+        "github": "https://github.com/pragmaticnv/vanguard"
     },
     {
         "id": 4,
@@ -46,10 +47,23 @@
             "Firebase Firestore",
             "Firebase Auth"
         ],
-        "link": "https://github.com/pragmaticnv/mindcanvas"
+        "github": "https://github.com/pragmaticnv/mindcanvas"
     },
     {
         "id": 5,
+        "title": "Personal Portfolio",
+        "description": "A premium, cinematic portfolio website built with modern technologies. Features high-quality visuals, glassmorphism UI, and smooth animations to showcase achievements and projects.",
+        "tech": [
+            "Next.js",
+            "Framer Motion",
+            "Tailwind CSS",
+            "Lucide React"
+        ],
+        "github": "https://github.com/pragmaticnv/portfolio",
+        "live": "https://nikhilvashishtha.in"
+    },
+    {
+        "id": 6,
         "title": "RevvUp",
         "description": "Car modification ecosystem with a build tracker, community showcase, and vendor connections. Helps enthusiasts plan, track, and share vehicle build projects.",
         "tech": [
@@ -57,6 +71,6 @@
             "Tailwind CSS",
             "Firebase"
         ],
-        "link": "https://github.com/pragmaticnv/revvup"
+        "github": "https://github.com/pragmaticnv/revvup"
     }
 ]
