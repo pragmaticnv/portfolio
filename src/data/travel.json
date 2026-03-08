@@ -31,5 +31,16 @@
         "visited": "Summer 2020",
         "description": "Explored the cultural heritage and vibrant cities of the state. A journey through diverse traditions and historical landmarks.",
         "image": "/IMG20251208111106.jpg"
+    },
+    {
+        "id": 4,
+        "place": "Vaishno Devi, Jammu & Kashmir",
+        "coordinates": [
+            33.0308,
+            74.9490
+        ],
+        "visited": "Early Childhood (Age 5)",
+        "description": "One of my earliest memories. The spiritual trek to the holy shrine with my family, surrounded by the majestic Trikuta Mountains.",
+        "image": "/vaishno.jpg"
     }
 ]

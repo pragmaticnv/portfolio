@@ -24,11 +24,11 @@ const doubled = [...skills, ...skills];
 
 const InfiniteMarquee = () => {
     return (
-        <div className="relative w-full overflow-hidden py-5 bg-white/[0.03] backdrop-blur-sm border-y border-white/[0.06]">
+        <div className="relative w-full overflow-hidden py-5 bg-card backdrop-blur-sm border-y border-card-border">
             {/* Left fade mask */}
-            <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-black to-transparent" />
+            <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-background to-transparent" />
             {/* Right fade mask */}
-            <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-black to-transparent" />
+            <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-background to-transparent" />
 
             <motion.div
                 className="flex whitespace-nowrap"

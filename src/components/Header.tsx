@@ -23,12 +23,12 @@ export default function Header() {
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                className="pointer-events-auto flex items-center gap-1 md:gap-2 bg-background/40 backdrop-blur-xl border border-foreground/10 rounded-full px-2 md:px-3 py-1.5 md:py-2 shadow-lg"
+                className="pointer-events-auto flex items-center gap-1 md:gap-2 bg-background/60 dark:bg-background/40 backdrop-blur-xl border border-card-border rounded-full px-2 md:px-3 py-1.5 md:py-2 shadow-lg"
             >
                 {navItems.map((item) => (
                     <NavItem key={item.label} item={item} />
                 ))}
-                <div className="w-[1px] h-4 bg-foreground/10 mx-1 hidden md:block" />
+                <div className="w-[1px] h-4 bg-card-border mx-1 hidden md:block" />
                 <ThemeToggle />
             </motion.nav>
         </div>
@@ -49,15 +49,15 @@ function NavItem({ item }: { item: typeof navItems[0] }) {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className={`flex items-center gap-2 px-3 md:px-4 py-2 rounded-full transition-all duration-300 ${isActive
-                    ? "bg-blue-600/20 border border-blue-500/30"
-                    : "hover:bg-white/5 border border-transparent"
+                    ? "bg-blue-600/10 dark:bg-blue-600/20 border border-blue-500/20 dark:border-blue-500/30"
+                    : "hover:bg-card border border-transparent"
                     }`}
             >
                 <Icon
-                    className={`w-4 h-4 transition-colors duration-300 ${isActive ? "text-blue-400" : "text-zinc-400 group-hover:text-white"
+                    className={`w-4 h-4 transition-colors duration-300 ${isActive ? "text-blue-600 dark:text-blue-400" : "text-muted-text group-hover:text-foreground"
                         }`}
                 />
-                <span className={`text-sm font-medium transition-colors duration-300 hidden md:block ${isActive ? "text-blue-100" : "text-zinc-400 group-hover:text-white"}`}>
+                <span className={`text-sm font-medium transition-colors duration-300 hidden md:block ${isActive ? "text-blue-600 dark:text-blue-100" : "text-muted-text group-hover:text-foreground"}`}>
                     {item.label}
                 </span>
 

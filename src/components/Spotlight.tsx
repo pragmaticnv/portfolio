@@ -22,7 +22,7 @@ export default function Spotlight() {
         <motion.div
             className="pointer-events-none fixed inset-0 z-30 transition-opacity duration-300"
             animate={{
-                background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255,255,255,0.06), transparent 40%)`,
+                background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, var(--accent-glow), transparent 40%)`,
             }}
         />
     );

@@ -64,7 +64,7 @@ export default function ContactPage() {
                     <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-200 dark:to-white">
                         Let's Connect
                     </h1>
-                    <p className="text-zinc-600 dark:text-zinc-400 mb-12 max-w-lg mx-auto text-lg">
+                    <p className="text-muted-text mb-12 max-w-lg mx-auto text-lg leading-relaxed">
                         Feel free to reach out for collaborations, project discussions, or just to say hi!
                     </p>
 

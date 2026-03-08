@@ -89,7 +89,7 @@ export default function Home() {
                   />
 
                   {/* Photo Container */}
-                  <div className="relative w-full h-full bg-background rounded-2xl overflow-hidden z-10 border border-foreground/10">
+                  <div className="relative w-full h-full bg-background rounded-2xl overflow-hidden z-10 border border-card-border">
                     <Image
                       src="/profilephoto_refined.png"
                       alt="Nikhil Vashishtha"
@@ -159,9 +159,9 @@ export default function Home() {
               <motion.a
                 href="/resume.pdf"
                 download
-                whileHover={{ scale: 1.05, borderColor: "rgba(0,0,0,0.2)", backgroundColor: "rgba(0,0,0,0.05)" }}
+                whileHover={{ scale: 1.05, borderColor: "rgba(59,130,246,0.3)", backgroundColor: "rgba(59,130,246,0.05)" }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 rounded-full border border-foreground/10 text-foreground font-semibold text-sm transition-all bg-foreground/5 backdrop-blur-sm shadow-sm"
+                className="px-8 py-3 rounded-full border border-card-border text-foreground font-semibold text-sm transition-all bg-card backdrop-blur-sm shadow-sm"
               >
                 Download Resume
               </motion.a>
@@ -208,7 +208,7 @@ export default function Home() {
 
 
       {/* ── TECH MARQUEE ─────────────────────────────────────────── */}
-      <div className="w-full relative z-20 border-y border-foreground/5 bg-background/50 backdrop-blur-sm">
+      <div className="w-full relative z-20 border-y border-card-border bg-background/50 backdrop-blur-sm">
         <InfiniteMarquee />
       </div>
 
@@ -219,12 +219,12 @@ export default function Home() {
           {/* Left — About */}
           <motion.div {...fadeUpView}>
             <h2 className="text-4xl font-bold mb-6 text-foreground/90">About Me</h2>
-            <p className="text-base md:text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">
+            <p className="text-base md:text-lg leading-relaxed text-muted-text">
               First-year CSE student at Chandigarh University. I build full-stack
               applications, win hackathons, and integrate AI + IoT to solve real
               problems. Currently seeking internship opportunities.
             </p>
-            <p className="mt-4 text-base leading-relaxed text-zinc-500 dark:text-zinc-400">
+            <p className="mt-4 text-base leading-relaxed text-muted-text/80">
               With a strong foundation in Physics &amp; Electronics, I bridge the
               gap between hardware and software — whether it&apos;s designing circuits
               or architecting full-stack apps.
@@ -268,11 +268,11 @@ export default function Home() {
                   y: -8,
                   boxShadow: `0 20px 60px ${a.glow}`,
                 }}
-                className="bg-foreground/5 backdrop-blur-md border border-foreground/10 rounded-2xl p-7 flex flex-col gap-3 transition-all duration-300 cursor-default"
+                className="bg-card backdrop-blur-md border border-card-border rounded-2xl p-7 flex flex-col gap-3 transition-all duration-300 cursor-default"
               >
                 <span className="text-3xl">{a.emoji}</span>
                 <h3 className="text-base font-semibold text-foreground leading-snug">{a.title}</h3>
-                <p className="text-sm text-zinc-500 dark:text-zinc-400">{a.sub}</p>
+                <p className="text-sm text-muted-text">{a.sub}</p>
               </motion.div>
             ))}
           </div>

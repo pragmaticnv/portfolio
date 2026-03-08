@@ -1,26 +1,49 @@
 [
     {
         "id": 1,
-        "school": "SHREE JI PUBLIC SCHOOL",
-        "degree": "1ST - 10TH Grade",
-        "year": "2012 - 2022",
-        "description": "Completed my primary and high school education with a focus on science and mathematics. Participated in various science exhibitions and sports events.",
+        "school": "Shree Ji Public School",
+        "degree": "1st – 10th Grade",
+        "year": "2012 – 2022",
+        "tag": "Foundation",
+        "accent": "#10b981",
+        "highlights": [
+            "Science Exhibitions",
+            "Sports Events",
+            "Mathematics"
+        ],
+        "description": "Completed primary and high school education with a strong focus on core scientific principles and active participation in competitive events.",
         "image": "/shreeji.jpg"
     },
     {
         "id": 2,
-        "school": "JEEVAN JYOTI PUBLIC SCHOOL",
-        "degree": "11TH - 12TH (Intermediate)",
-        "year": "2022 - 2024",
-        "description": "Specialized in Non-Medical Sciences (Physics, Chemistry, Mathematics). Developed a strong foundation in problem-solving and analytical thinking.",
+        "school": "Jeevan Jyoti Public School",
+        "degree": "11th – 12th Intermediate",
+        "year": "2022 – 2024",
+        "tag": "Sciences",
+        "accent": "#3b82f6",
+        "highlights": [
+            "Physics",
+            "Chemistry",
+            "Mathematics"
+        ],
+        "description": "Specialised in Non-Medical Sciences. Built analytical thinking that underpins hardware/engineering work.",
         "image": "/jjps.jpg"
     },
     {
         "id": 3,
-        "school": "Chandigarh University, India",
-        "degree": "B.E. in Computer Science and Engineering",
-        "year": "2025 - 2029",
-        "description": "Pursuing a Bachelor's degree with a specialization in Artificial Intelligence. Active member of the coding club and working on various full-stack projects.",
+        "school": "Chandigarh University",
+        "degree": "B.E. CSE with AI Specialisation",
+        "year": "2025 – 2029",
+        "tag": "Current",
+        "accent": "#8b5cf6",
+        "grade": "SGPA 8.0/10",
+        "highlights": [
+            "DSA",
+            "Generative AI",
+            "Quantum Computing",
+            "Human Psychology"
+        ],
+        "description": "B.E. CSE with AI specialisation. Active in coding club, building full-stack projects, and competing in national hackathons.",
         "image": "/chandigarhuni.jpg"
     }
 ]

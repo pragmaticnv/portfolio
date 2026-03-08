@@ -49,13 +49,13 @@ const DonutChart = ({ percentage, color, label, delay = 0 }: DonutChartProps) =>
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: delay + 0.5 }}
-                        className="text-xl font-bold text-zinc-800 dark:text-white"
+                        className="text-xl font-bold text-foreground"
                     >
                         {percentage}%
                     </motion.span>
                 </div>
             </div>
-            <span className="text-lg font-medium text-zinc-600 dark:text-zinc-300">{label}</span>
+            <span className="text-lg font-medium text-muted-text">{label}</span>
         </div>
     );
 };

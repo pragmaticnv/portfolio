@@ -18,7 +18,8 @@
         ],
         "award": "3rd Place · Escape The Vincii '26 · ₹20,000 prize",
         "github": "https://github.com/pragmaticnv/safemap",
-        "live": "https://safemap-ai.vercel.app"
+        "live": "https://safemap-sigma.vercel.app/",
+        "image": "/safemap_preview.png"
     },
     {
         "id": 2,
@@ -36,67 +37,12 @@
             "Tailwind CSS",
             "Firebase"
         ],
-        "github": "https://github.com/pragmaticnv/revvup"
+        "github": "https://github.com/pragmaticnv/revvup",
+        "live": "https://borneo.vercel.app/",
+        "image": "/revvup_preview.png"
     },
     {
         "id": 3,
-        "title": "Women Safety SOS Device",
-        "description": "IoT hardware device for rural women's safety featuring GPS tracking and instant voice distress alerts.",
-        "longDescription": "A low-cost, high-impact IoT device designed for the safety of women in rural areas. The device features a panic button that triggers instant SMS alerts with GPS coordinates to emergency contacts and triggers a loud siren. It also includes an offline voice messaging module for communication in low-connectivity zones.",
-        "features": [
-            "GPS tracking with high accuracy",
-            "Instant SMS & Voice alerts via GSM",
-            "Emergency siren and LED signaling",
-            "Low power consumption for long battery life"
-        ],
-        "tech": [
-            "Arduino",
-            "GPS Module",
-            "IoT",
-            "Voice Messaging"
-        ],
-        "award": "IIT Delhi Build for Rural India Hackathon",
-        "github": "https://github.com/pragmaticnv/women-safety-sos"
-    },
-    {
-        "id": 4,
-        "title": "VANGUARD Digital Twin",
-        "description": "Heritage site protection system using IoT sensors paired with a live web dashboard.",
-        "longDescription": "VANGUARD uses a network of sensors to monitor environmental factors such as temperature, humidity, and structural tilt at heritage sites. This data is transmitted to a digital twin dashboard, allowing conservators to monitor the site's health in real-time and receive alerts for potential hazards.",
-        "features": [
-            "Real-time sensor data streaming",
-            "Digital twin dashboard visualization",
-            "Environment hazard alerting system",
-            "Historical data analysis"
-        ],
-        "tech": [
-            "Arduino",
-            "IoT",
-            "Web Dashboard"
-        ],
-        "award": "AI Fest / Tech4SDG Ideathon 2.0",
-        "github": "https://github.com/pragmaticnv/vanguard"
-    },
-    {
-        "id": 5,
-        "title": "MindCanvas",
-        "description": "Anonymous collaborative mental health diary with real-time sync.",
-        "longDescription": "MindCanvas is a platform where users can anonymously share their thoughts and moods. It uses a canvas-based interface for free-form expression and features real-time synchronization to show a 'collective pulse' of the community's mood. It's built with focus on privacy and mental health support.",
-        "features": [
-            "Real-time anonymous pulse synchronization",
-            "Canvas-based journaling interface",
-            "Mood tracking and visualization",
-            "Firebase-powered real-time updates"
-        ],
-        "tech": [
-            "Node.js",
-            "Firebase Firestore",
-            "Firebase Auth"
-        ],
-        "github": "https://github.com/pragmaticnv/mindcanvas"
-    },
-    {
-        "id": 6,
         "title": "Personal Portfolio",
         "description": "A premium, cinematic portfolio website built with modern technologies.",
         "longDescription": "This portfolio project focuses on high-end UI/UX, using Framer Motion for complex animations and Next.js for performance. It features a cinematic hero section, a bento-style 'about' grid, and a custom projects gallery designed to showcase work in a professional, premium manner.",
@@ -113,6 +59,28 @@
             "Lucide React"
         ],
         "github": "https://github.com/pragmaticnv/portfolio",
-        "live": "https://nikhilvashishtha.in"
+        "live": "https://nikhilvashishtha.in",
+        "image": "/portfolio_preview.png"
+    },
+    {
+        "id": 4,
+        "title": "Women Safety SOS Device",
+        "description": "IoT hardware device for rural women's safety featuring GPS tracking and instant voice distress alerts.",
+        "longDescription": "A low-cost, high-impact IoT device designed for the safety of women in rural areas. The device features a panic button that triggers instant SMS alerts with GPS coordinates to emergency contacts and triggers a loud siren. It also includes an offline voice messaging module for communication in low-connectivity zones.",
+        "features": [
+            "GPS tracking with high accuracy",
+            "Instant SMS & Voice alerts via GSM",
+            "Emergency siren and LED signaling",
+            "Low power consumption for long battery life"
+        ],
+        "tech": [
+            "Arduino",
+            "GPS Module",
+            "IoT",
+            "Voice Messaging"
+        ],
+        "award": "IIT Delhi Build for Rural India Hackathon",
+        "github": "https://github.com/pragmaticnv/women-safety-sos",
+        "image": "/women_safety_preview.png"
     }
 ]
