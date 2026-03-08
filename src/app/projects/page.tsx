@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useSpring, useTransform } from "framer-motion";
 import { ArrowLeft, Trophy, Cpu, Github, Globe, X, Eye } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import projectsData from "@/data/projects.json";
 
 const projectAccents = [
@@ -17,21 +17,71 @@ const projectAccents = [
 
 export default function ProjectsPage() {
     const [selectedProject, setSelectedProject] = useState<any>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start start", "end end"]
+    });
+
+    const scaleY = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
 
     return (
-        <main className="min-h-screen px-6 pb-32 pt-24 relative overflow-hidden bg-black text-white">
-            {/* Background Ambient Glows */}
+        <main ref={containerRef} className="min-h-screen px-6 pb-32 pt-24 relative overflow-hidden bg-black text-white selection:bg-blue-500/30">
+            {/* --- PREMIUM BACKGROUND OVERLAY --- */}
             <div className="fixed inset-0 pointer-events-none -z-10">
-                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-900/10 blur-[150px] rounded-full" />
-                <div className="absolute bottom-[20%] right-[-10%] w-[35%] h-[35%] bg-violet-900/10 blur-[150px] rounded-full" />
+                {/* Geometric Grid */}
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+
+                {/* Noise Texture */}
+                <div className="absolute inset-0 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] brightness-100 contrast-150" />
+
+                {/* Ambient Glows */}
+                <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-900/10 blur-[180px] rounded-full animate-pulse" />
+                <div className="absolute bottom-[20%] right-[-10%] w-[45%] h-[45%] bg-violet-900/10 blur-[180px] rounded-full" />
+
+                {/* Floating Particles (Fake Parallax) */}
+                <div className="absolute inset-0 overflow-hidden">
+                    {[...Array(6)].map((_, i) => (
+                        <motion.div
+                            key={i}
+                            animate={{
+                                y: [0, -40, 0],
+                                x: [0, 20, 0],
+                                opacity: [0.1, 0.3, 0.1]
+                            }}
+                            transition={{
+                                duration: 10 + i * 2,
+                                repeat: Infinity,
+                                ease: "linear"
+                            }}
+                            className="absolute w-1 h-1 bg-white rounded-full"
+                            style={{
+                                top: `${Math.random() * 100}%`,
+                                left: `${Math.random() * 100}%`,
+                            }}
+                        />
+                    ))}
+                </div>
             </div>
 
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-5xl mx-auto relative">
+                {/* --- SCROLL PROGRESS LINE --- */}
+                <div className="absolute left-[-40px] top-64 bottom-40 w-[1px] bg-white/5 hidden xl:block">
+                    <motion.div
+                        style={{ scaleY }}
+                        className="absolute top-0 w-full h-full bg-gradient-to-b from-blue-500 via-violet-500 to-transparent origin-top shadow-[0_0_15px_rgba(59,130,246,0.5)]"
+                    />
+                </div>
+
                 {/* Back Navigation */}
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    className="mb-12"
+                    className="mb-12 relative z-10"
                 >
                     <Link
                         href="/"
@@ -46,21 +96,24 @@ export default function ProjectsPage() {
 
                 {/* Page Header */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="mb-24"
+                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                    className="mb-32 relative z-10"
                 >
-                    <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-b from-white to-zinc-500">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold tracking-[0.2em] uppercase">
+                        Portfolio Portfolio
+                    </div>
+                    <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-zinc-700">
                         My Projects
                     </h1>
-                    <p className="text-base text-zinc-400 max-w-xl leading-relaxed">
-                        A collection of my most impactful projects across full-stack development, IoT, and AI.
+                    <p className="text-lg text-zinc-400 max-w-2xl leading-relaxed font-medium">
+                        Crafting digital experiences through high-performance code and innovative design. Explore a decade of evolution in full-stack engineering and IoT.
                     </p>
                 </motion.div>
 
                 {/* Projects List */}
-                <div className="flex flex-col gap-24 md:gap-32">
+                <div className="flex flex-col gap-32 md:gap-48 relative z-10">
                     {projectsData.map((project, index) => (
                         <ProjectItem
                             key={project.id}
@@ -76,14 +129,20 @@ export default function ProjectsPage() {
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    className="mt-40 text-center border-t border-white/5 pt-20"
+                    className="mt-48 text-center border-t border-white/5 pt-24"
                 >
-                    <h2 className="text-2xl font-bold mb-6">Let's build something epic</h2>
+                    <p className="text-zinc-500 font-mono text-xs uppercase tracking-[0.3em] mb-4">Collaboration</p>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-500">
+                        Interested in working together?
+                    </h2>
                     <Link
                         href="/contact"
-                        className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white text-black font-bold hover:scale-105 transition-transform text-sm"
+                        className="group relative inline-flex items-center gap-2 px-10 py-4 rounded-full bg-white text-black font-extrabold transition-all overflow-hidden"
                     >
-                        Get in Touch
+                        <span className="relative z-10 text-sm">Start a Project</span>
+                        <motion.div
+                            className="absolute inset-0 bg-blue-500 translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+                        />
                     </Link>
                 </motion.div>
             </div>
@@ -106,30 +165,34 @@ function ProjectItem({ project, index, onViewDetails }: { project: any; index: n
 
     return (
         <motion.section
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative"
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="group relative"
         >
-            <div className={`absolute -inset-6 bg-gradient-to-br ${accentColor} opacity-15 blur-2xl -z-10`} />
+            {/* Massive Background Number */}
+            <div className="absolute -left-12 -top-12 text-[10rem] md:text-[14rem] font-black text-white/[0.03] select-none pointer-events-none transition-transform duration-700 group-hover:-translate-y-4">
+                0{index + 1}
+            </div>
 
-            <div className="flex flex-col gap-6">
+            <div className={`absolute -inset-10 bg-gradient-to-br ${accentColor} opacity-10 blur-3xl -z-10 transition-opacity duration-700 group-hover:opacity-20`} />
+
+            <div className="flex flex-col gap-8 relative">
                 <div className="flex flex-wrap items-center gap-4">
-                    <span className="text-zinc-700 font-mono text-base">0{index + 1}</span>
                     {"award" in project && project.award && (
-                        <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-[10px] font-bold tracking-wider uppercase backdrop-blur-sm">
-                            <Trophy className="w-2.5 h-2.5" />
+                        <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-[10px] font-black tracking-widest uppercase backdrop-blur-md">
+                            <Trophy className="w-3 h-3" />
                             {project.award}
                         </div>
                     )}
                 </div>
 
-                <div className="space-y-4">
-                    <h2 className="text-3xl md:text-4xl font-bold hover:text-blue-400 transition-colors cursor-default tracking-tight">
+                <div className="space-y-6">
+                    <h2 className="text-4xl md:text-5xl font-black group-hover:text-blue-400 transition-colors cursor-pointer tracking-tight" onClick={onViewDetails}>
                         {project.title}
                     </h2>
-                    <p className="text-zinc-400 text-base md:text-lg leading-relaxed max-w-3xl">
+                    <p className="text-zinc-400 text-base md:text-xl leading-relaxed max-w-4xl font-medium">
                         {project.description}
                     </p>
                 </div>
@@ -139,24 +202,24 @@ function ProjectItem({ project, index, onViewDetails }: { project: any; index: n
                     {project.tech.map((tech: string) => (
                         <div
                             key={tech}
-                            className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/5 border border-white/10"
+                            className="flex items-center gap-2 px-4 py-1.5 rounded-lg bg-white/5 border border-white/10 hover:border-white/20 transition-all"
                         >
-                            <Cpu className="w-3 h-3 text-zinc-600" />
-                            <span className="text-[10px] font-semibold text-zinc-400 uppercase tracking-wider">{tech}</span>
+                            <Cpu className="w-3.5 h-3.5 text-zinc-500" />
+                            <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">{tech}</span>
                         </div>
                     ))}
                 </div>
 
                 {/* Actions */}
-                <div className="flex flex-wrap gap-3 mt-2">
+                <div className="flex flex-wrap gap-4 mt-4">
                     {"github" in project && project.github && (
                         <motion.a
                             href={project.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            whileHover={{ y: -2 }}
+                            whileHover={{ y: -4, scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="flex items-center gap-2 px-5 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all font-medium text-xs text-zinc-300"
+                            className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all font-bold text-xs text-zinc-200 uppercase tracking-wider"
                         >
                             <Github className="w-4 h-4" />
                             Github Repo
@@ -167,9 +230,9 @@ function ProjectItem({ project, index, onViewDetails }: { project: any; index: n
                             href={project.live}
                             target="_blank"
                             rel="noopener noreferrer"
-                            whileHover={{ y: -2 }}
+                            whileHover={{ y: -4, scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="flex items-center gap-2 px-5 py-2 rounded-full bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/20 transition-all font-medium text-xs"
+                            className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white shadow-xl shadow-blue-600/20 transition-all font-black text-xs uppercase tracking-wider"
                         >
                             <Globe className="w-4 h-4" />
                             Visit Demo
@@ -177,7 +240,7 @@ function ProjectItem({ project, index, onViewDetails }: { project: any; index: n
                     )}
                     <button
                         onClick={onViewDetails}
-                        className="flex items-center gap-2 px-5 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all font-medium text-xs text-zinc-300"
+                        className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all font-bold text-xs text-zinc-200 uppercase tracking-wider"
                     >
                         <Eye className="w-4 h-4" />
                         View Details
@@ -196,71 +259,91 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={onClose}
-                className="absolute inset-0 bg-black/80 backdrop-blur-md"
+                className="absolute inset-0 bg-black/90 backdrop-blur-xl"
             />
             <motion.div
-                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                initial={{ opacity: 0, scale: 0.95, y: 40 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                className="relative w-full max-w-3xl bg-zinc-900 border border-white/10 rounded-3xl overflow-hidden shadow-2xl"
+                exit={{ opacity: 0, scale: 0.95, y: 40 }}
+                transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                className="relative w-full max-w-4xl bg-zinc-950/50 border border-white/10 rounded-[3rem] overflow-hidden shadow-2xl backdrop-blur-2xl"
             >
-                <div className="p-8 md:p-12 max-h-[85vh] overflow-y-auto">
+                {/* Background Accent Grid in Modal */}
+                <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] bg-[size:32px_32px] -z-10" />
+
+                <div className="p-10 md:p-16 max-h-[90vh] overflow-y-auto custom-scrollbar">
                     <button
                         onClick={onClose}
-                        className="absolute top-6 right-6 p-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all"
+                        className="absolute top-8 right-8 p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all group"
                     >
-                        <X className="w-5 h-5" />
+                        <X className="w-5 h-5 group-hover:rotate-90 transition-transform" />
                     </button>
 
-                    <div className="mb-8">
+                    <div className="mb-12">
                         {"award" in project && project.award && (
-                            <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-[10px] font-bold tracking-wider uppercase">
-                                <Trophy className="w-3 h-3" />
+                            <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-[10px] font-black tracking-widest uppercase">
+                                <Trophy className="w-4 h-4" />
                                 {project.award}
                             </div>
                         )}
-                        <h2 className="text-4xl md:text-5xl font-bold mb-4">{project.title}</h2>
-                        <div className="flex flex-wrap gap-2 mb-6">
+                        <h2 className="text-5xl md:text-7xl font-black mb-6 tracking-tight">{project.title}</h2>
+                        <div className="flex flex-wrap gap-2.5">
                             {project.tech.map((t: string) => (
-                                <span key={t} className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-[10px] font-bold text-zinc-400 uppercase tracking-widest">
+                                <span key={t} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-[10px] font-black text-zinc-400 uppercase tracking-[0.2em] shadow-sm">
                                     {t}
                                 </span>
                             ))}
                         </div>
                     </div>
 
-                    <div className="space-y-8">
-                        <div>
-                            <h3 className="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-3">Overview</h3>
-                            <p className="text-zinc-300 text-lg leading-relaxed">
-                                {project.longDescription || project.description}
-                            </p>
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                        <div className="lg:col-span-7 space-y-10">
+                            <div>
+                                <h3 className="text-zinc-600 text-[10px] font-black uppercase tracking-[0.4em] mb-6">Execution Overview</h3>
+                                <p className="text-zinc-300 text-xl leading-relaxed font-medium">
+                                    {project.longDescription || project.description}
+                                </p>
+                            </div>
+
+                            {project.features && (
+                                <div>
+                                    <h3 className="text-zinc-600 text-[10px] font-black uppercase tracking-[0.4em] mb-6">Project Capabilities</h3>
+                                    <ul className="space-y-4">
+                                        {project.features.map((feature: string) => (
+                                            <li key={feature} className="flex items-center gap-4 text-zinc-400 text-base group">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-blue-500 group-hover:scale-150 transition-transform" />
+                                                <span className="font-medium">{feature}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
                         </div>
 
-                        {project.features && (
-                            <div>
-                                <h3 className="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-3">Key Features</h3>
-                                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                    {project.features.map((feature: string) => (
-                                        <li key={feature} className="flex items-start gap-2 text-zinc-400 text-sm">
-                                            <div className="w-1 h-1 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
-                                            {feature}
-                                        </li>
-                                    ))}
-                                </ul>
+                        <div className="lg:col-span-5 border-l border-white/5 pl-12 hidden lg:block">
+                            <h3 className="text-zinc-600 text-[10px] font-black uppercase tracking-[0.4em] mb-8">Metadata</h3>
+                            <div className="space-y-6">
+                                <div>
+                                    <p className="text-zinc-500 text-xs font-bold mb-1">Status</p>
+                                    <p className="text-white font-black uppercase tracking-widest text-xs">Completed</p>
+                                </div>
+                                <div>
+                                    <p className="text-zinc-500 text-xs font-bold mb-1">Role</p>
+                                    <p className="text-white font-black uppercase tracking-widest text-xs">Lead Developer</p>
+                                </div>
                             </div>
-                        )}
+                        </div>
                     </div>
 
-                    <div className="flex flex-wrap gap-4 mt-12 pt-8 border-t border-white/5">
+                    <div className="flex flex-wrap gap-4 mt-20 pt-10 border-t border-white/10">
                         {"github" in project && project.github && (
                             <a
                                 href={project.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black font-bold text-sm"
+                                className="flex items-center gap-3 px-8 py-4 rounded-2xl bg-white text-black font-black text-xs uppercase tracking-widest transition-transform hover:scale-[1.02]"
                             >
-                                <Github className="w-4 h-4" />
+                                <Github className="w-5 h-5" />
                                 Github Repo
                             </a>
                         )}
@@ -269,9 +352,9 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
                                 href={project.live}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 px-6 py-3 rounded-full bg-blue-600 text-white font-bold text-sm"
+                                className="flex items-center gap-3 px-8 py-4 rounded-2xl bg-blue-600 text-white font-black text-xs uppercase tracking-widest transition-transform hover:scale-[1.02]"
                             >
-                                <Globe className="w-4 h-4" />
+                                <Globe className="w-5 h-5" />
                                 Visit Demo
                             </a>
                         )}

@@ -22,6 +22,24 @@
     },
     {
         "id": 2,
+        "title": "RevvUp",
+        "description": "Car modification ecosystem with a build tracker, community showcase, and vendor connections.",
+        "longDescription": "RevvUp provides a centralized platform for car enthusiasts to document their modification journeys. Users can track parts, calculate build costs, share progress with the community, and connect with verified vendors and shops in the automotive space.",
+        "features": [
+            "Modification build tracker",
+            "Community showcase and project feeds",
+            "Vendor and garage directory",
+            "Build cost and parts estimator"
+        ],
+        "tech": [
+            "Next.js",
+            "Tailwind CSS",
+            "Firebase"
+        ],
+        "github": "https://github.com/pragmaticnv/revvup"
+    },
+    {
+        "id": 3,
         "title": "Women Safety SOS Device",
         "description": "IoT hardware device for rural women's safety featuring GPS tracking and instant voice distress alerts.",
         "longDescription": "A low-cost, high-impact IoT device designed for the safety of women in rural areas. The device features a panic button that triggers instant SMS alerts with GPS coordinates to emergency contacts and triggers a loud siren. It also includes an offline voice messaging module for communication in low-connectivity zones.",
@@ -41,7 +59,7 @@
         "github": "https://github.com/pragmaticnv/women-safety-sos"
     },
     {
-        "id": 3,
+        "id": 4,
         "title": "VANGUARD Digital Twin",
         "description": "Heritage site protection system using IoT sensors paired with a live web dashboard.",
         "longDescription": "VANGUARD uses a network of sensors to monitor environmental factors such as temperature, humidity, and structural tilt at heritage sites. This data is transmitted to a digital twin dashboard, allowing conservators to monitor the site's health in real-time and receive alerts for potential hazards.",
@@ -60,7 +78,7 @@
         "github": "https://github.com/pragmaticnv/vanguard"
     },
     {
-        "id": 4,
+        "id": 5,
         "title": "MindCanvas",
         "description": "Anonymous collaborative mental health diary with real-time sync.",
         "longDescription": "MindCanvas is a platform where users can anonymously share their thoughts and moods. It uses a canvas-based interface for free-form expression and features real-time synchronization to show a 'collective pulse' of the community's mood. It's built with focus on privacy and mental health support.",
@@ -78,7 +96,7 @@
         "github": "https://github.com/pragmaticnv/mindcanvas"
     },
     {
-        "id": 5,
+        "id": 6,
         "title": "Personal Portfolio",
         "description": "A premium, cinematic portfolio website built with modern technologies.",
         "longDescription": "This portfolio project focuses on high-end UI/UX, using Framer Motion for complex animations and Next.js for performance. It features a cinematic hero section, a bento-style 'about' grid, and a custom projects gallery designed to showcase work in a professional, premium manner.",
@@ -96,23 +114,5 @@
         ],
         "github": "https://github.com/pragmaticnv/portfolio",
         "live": "https://nikhilvashishtha.in"
-    },
-    {
-        "id": 6,
-        "title": "RevvUp",
-        "description": "Car modification ecosystem with a build tracker, community showcase, and vendor connections.",
-        "longDescription": "RevvUp provides a centralized platform for car enthusiasts to document their modification journeys. Users can track parts, calculate build costs, share progress with the community, and connect with verified vendors and shops in the automotive space.",
-        "features": [
-            "Modification build tracker",
-            "Community showcase and project feeds",
-            "Vendor and garage directory",
-            "Build cost and parts estimator"
-        ],
-        "tech": [
-            "Next.js",
-            "Tailwind CSS",
-            "Firebase"
-        ],
-        "github": "https://github.com/pragmaticnv/revvup"
     }
 ]
