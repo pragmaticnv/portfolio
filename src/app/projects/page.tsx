@@ -81,7 +81,7 @@ export default function ProjectsPage() {
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    className="mb-12 relative z-10"
+                    className="mb-8 md:mb-12 relative z-10"
                 >
                     <Link
                         href="/"
@@ -99,21 +99,21 @@ export default function ProjectsPage() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                    className="mb-32 relative z-10"
+                    className="mb-20 md:mb-32 relative z-10"
                 >
-                    <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold tracking-[0.2em] uppercase">
-                        Portfolio Portfolio
+                    <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 md:mb-6 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[9px] md:text-[10px] font-bold tracking-[0.2em] uppercase">
+                        Portfolio Pipeline
                     </div>
-                    <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-zinc-700">
+                    <h1 className="text-4xl md:text-7xl font-black tracking-tight mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-zinc-700">
                         My Projects
                     </h1>
-                    <p className="text-lg text-zinc-400 max-w-2xl leading-relaxed font-medium">
+                    <p className="text-base md:text-lg text-zinc-400 max-w-2xl leading-relaxed font-medium">
                         Crafting digital experiences through high-performance code and innovative design. Explore a decade of evolution in full-stack engineering and IoT.
                     </p>
                 </motion.div>
 
                 {/* Projects List */}
-                <div className="flex flex-col gap-32 md:gap-48 relative z-10">
+                <div className="flex flex-col gap-24 md:gap-48 relative z-10">
                     {projectsData.map((project, index) => (
                         <ProjectItem
                             key={project.id}
@@ -171,28 +171,28 @@ function ProjectItem({ project, index, onViewDetails }: { project: any; index: n
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="group relative"
         >
-            {/* Massive Background Number */}
-            <div className="absolute -left-12 -top-12 text-[10rem] md:text-[14rem] font-black text-white/[0.03] select-none pointer-events-none transition-transform duration-700 group-hover:-translate-y-4">
+            {/* Massive Background Number - Hidden on mobile, adjusted positioning on desktop */}
+            <div className="absolute -left-12 -top-12 text-[10rem] md:text-[14rem] font-black text-white/[0.03] select-none pointer-events-none transition-transform duration-700 group-hover:-translate-y-4 hidden md:block">
                 0{index + 1}
             </div>
 
             <div className={`absolute -inset-10 bg-gradient-to-br ${accentColor} opacity-10 blur-3xl -z-10 transition-opacity duration-700 group-hover:opacity-20`} />
 
-            <div className="flex flex-col gap-8 relative">
+            <div className="flex flex-col gap-6 md:gap-8 relative">
                 <div className="flex flex-wrap items-center gap-4">
                     {"award" in project && project.award && (
-                        <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-[10px] font-black tracking-widest uppercase backdrop-blur-md">
-                            <Trophy className="w-3 h-3" />
+                        <div className="flex items-center gap-2 px-3 md:px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-[8px] md:text-[10px] font-black tracking-widest uppercase backdrop-blur-md">
+                            <Trophy className="w-2.5 h-2.5 md:w-3 h-3" />
                             {project.award}
                         </div>
                     )}
                 </div>
 
-                <div className="space-y-6">
-                    <h2 className="text-4xl md:text-5xl font-black group-hover:text-blue-400 transition-colors cursor-pointer tracking-tight" onClick={onViewDetails}>
+                <div className="space-y-4 md:space-y-6">
+                    <h2 className="text-3xl md:text-5xl font-black group-hover:text-blue-400 transition-colors cursor-pointer tracking-tight leading-[1.1]" onClick={onViewDetails}>
                         {project.title}
                     </h2>
-                    <p className="text-zinc-400 text-base md:text-xl leading-relaxed max-w-4xl font-medium">
+                    <p className="text-zinc-400 text-sm md:text-xl leading-relaxed max-w-4xl font-medium">
                         {project.description}
                     </p>
                 </div>
@@ -202,16 +202,16 @@ function ProjectItem({ project, index, onViewDetails }: { project: any; index: n
                     {project.tech.map((tech: string) => (
                         <div
                             key={tech}
-                            className="flex items-center gap-2 px-4 py-1.5 rounded-lg bg-white/5 border border-white/10 hover:border-white/20 transition-all"
+                            className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 rounded-lg bg-white/5 border border-white/10 hover:border-white/20 transition-all"
                         >
-                            <Cpu className="w-3.5 h-3.5 text-zinc-500" />
-                            <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">{tech}</span>
+                            <Cpu className="w-3 h-3 md:w-3.5 h-3.5 text-zinc-500" />
+                            <span className="text-[8px] md:text-[10px] font-bold text-zinc-400 uppercase tracking-widest">{tech}</span>
                         </div>
                     ))}
                 </div>
 
                 {/* Actions */}
-                <div className="flex flex-wrap gap-4 mt-4">
+                <div className="flex flex-wrap gap-3 md:gap-4 mt-2 md:mt-4">
                     {"github" in project && project.github && (
                         <motion.a
                             href={project.github}
@@ -219,10 +219,10 @@ function ProjectItem({ project, index, onViewDetails }: { project: any; index: n
                             rel="noopener noreferrer"
                             whileHover={{ y: -4, scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all font-bold text-xs text-zinc-200 uppercase tracking-wider"
+                            className="flex items-center gap-2.5 px-4 md:px-6 py-2.5 md:py-3 rounded-xl md:rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all font-bold text-[10px] md:text-xs text-zinc-200 uppercase tracking-wider"
                         >
-                            <Github className="w-4 h-4" />
-                            Github Repo
+                            <Github className="w-3.5 h-3.5 md:w-4 h-4" />
+                            Github
                         </motion.a>
                     )}
                     {"live" in project && project.live && (
@@ -232,18 +232,18 @@ function ProjectItem({ project, index, onViewDetails }: { project: any; index: n
                             rel="noopener noreferrer"
                             whileHover={{ y: -4, scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white shadow-xl shadow-blue-600/20 transition-all font-black text-xs uppercase tracking-wider"
+                            className="flex items-center gap-2.5 px-4 md:px-6 py-2.5 md:py-3 rounded-xl md:rounded-2xl bg-blue-600 hover:bg-blue-500 text-white shadow-xl shadow-blue-600/20 transition-all font-black text-[10px] md:text-xs uppercase tracking-wider"
                         >
-                            <Globe className="w-4 h-4" />
-                            Visit Demo
+                            <Globe className="w-3.5 h-3.5 md:w-4 h-4" />
+                            Live
                         </motion.a>
                     )}
                     <button
                         onClick={onViewDetails}
-                        className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all font-bold text-xs text-zinc-200 uppercase tracking-wider"
+                        className="flex items-center gap-2.5 px-4 md:px-6 py-2.5 md:py-3 rounded-xl md:rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all font-bold text-[10px] md:text-xs text-zinc-200 uppercase tracking-wider"
                     >
-                        <Eye className="w-4 h-4" />
-                        View Details
+                        <Eye className="w-3.5 h-3.5 md:w-4 h-4" />
+                        Details
                     </button>
                 </div>
             </div>

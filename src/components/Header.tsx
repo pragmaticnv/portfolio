@@ -22,7 +22,7 @@ export default function Header() {
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                className="pointer-events-auto flex items-center gap-2 bg-black/40 backdrop-blur-xl border border-white/10 rounded-full px-4 py-2 shadow-[0_0_30px_rgba(0,0,0,0.5)]"
+                className="pointer-events-auto flex items-center gap-1 md:gap-2 bg-black/40 backdrop-blur-xl border border-white/10 rounded-full px-2 md:px-4 py-2 shadow-[0_0_30px_rgba(0,0,0,0.5)]"
             >
                 {navItems.map((item) => (
                     <NavItem key={item.label} item={item} />
@@ -43,9 +43,9 @@ function NavItem({ item }: { item: typeof navItems[0] }) {
             <motion.div
                 onHoverStart={() => setIsHovered(true)}
                 onHoverEnd={() => setIsHovered(false)}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 ${isActive
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`flex items-center gap-2 px-3 md:px-4 py-2 rounded-full transition-all duration-300 ${isActive
                     ? "bg-blue-600/20 border border-blue-500/30"
                     : "hover:bg-white/5 border border-transparent"
                     }`}
@@ -54,7 +54,7 @@ function NavItem({ item }: { item: typeof navItems[0] }) {
                     className={`w-4 h-4 transition-colors duration-300 ${isActive ? "text-blue-400" : "text-zinc-400 group-hover:text-white"
                         }`}
                 />
-                <span className={`text-sm font-medium transition-colors duration-300 ${isActive ? "text-blue-100" : "text-zinc-400 group-hover:text-white"}`}>
+                <span className={`text-sm font-medium transition-colors duration-300 hidden md:block ${isActive ? "text-blue-100" : "text-zinc-400 group-hover:text-white"}`}>
                     {item.label}
                 </span>
 
