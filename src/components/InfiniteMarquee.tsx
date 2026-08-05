@@ -11,12 +11,18 @@ const skills = [
     "Three.js",
     "Arduino",
     "IoT",
+    "ESP8266",
     "Framer Motion",
     "Node.js",
     "Firebase",
+    "Supabase",
+    "PostgreSQL",
     "Tailwind CSS",
     "WebGL",
     "OpenAI API",
+    "LangChain",
+    "Docker",
+    "C",
 ];
 
 // Double the list for seamless infinite loop

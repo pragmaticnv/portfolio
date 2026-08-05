@@ -36,14 +36,14 @@
         "year": "2025 – 2029",
         "tag": "Current",
         "accent": "#8b5cf6",
-        "grade": "SGPA 8.0/10",
+        "grade": "CGPA 8.4/10",
         "highlights": [
-            "DSA",
+            "Advanced DSA",
             "Generative AI",
-            "Quantum Computing",
+            "IoT Architecture",
             "Human Psychology"
         ],
-        "description": "B.E. CSE with AI specialisation. Active in coding club, building full-stack projects, and competing in national hackathons.",
+        "description": "B.E. CSE with AI specialisation. Led multiple hackathon teams, built full-stack solutions, and specialized in combining IoT devices with generative AI models.",
         "image": "/chandigarhuni.jpg"
     }
 ]

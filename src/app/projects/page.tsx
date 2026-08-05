@@ -124,6 +124,10 @@ function ProjectItem({ project, index, onViewDetails }: { project: any; index: n
 }
 
 function ProjectModal({ project, onClose }: { project: any; onClose: () => void }) {
+    // Generate a subtle glow color based on the title or index for high-fidelity ambient feel
+    const isIoT = project.title.toLowerCase().includes("iot") || project.title.toLowerCase().includes("safety") || project.title.toLowerCase().includes("home");
+    const glowColor = isIoT ? "rgba(16,185,129,0.12)" : "rgba(59,130,246,0.12)";
+
     return (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
             <motion.div
@@ -131,37 +135,47 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={onClose}
-                className="absolute inset-0 bg-background/80 backdrop-blur-xl"
+                className="absolute inset-0 bg-background/90 backdrop-blur-2xl"
             />
             <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 40 }}
+                initial={{ opacity: 0, scale: 0.97, y: 40 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: 40 }}
-                transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                className="relative w-full max-w-4xl bg-background/50 border border-foreground/10 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl backdrop-blur-2xl"
+                exit={{ opacity: 0, scale: 0.97, y: 40 }}
+                transition={{ type: "spring", damping: 30, stiffness: 220 }}
+                className="relative w-full max-w-4xl bg-card/60 border border-card-border rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.5)] backdrop-blur-2xl z-20"
             >
-                {/* Background Accent Grid in Modal */}
-                <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,currentColor_1px,transparent_1px),linear-gradient(to_bottom,currentColor_1px,transparent_1px)] bg-[size:32px_32px] -z-10" />
+                {/* Ambient Radial Accent Glow behind Card Content */}
+                <div 
+                    className="absolute -top-40 -left-40 w-96 h-96 rounded-full blur-[150px] pointer-events-none -z-10 transition-colors duration-500" 
+                    style={{ backgroundColor: glowColor }}
+                />
+                <div 
+                    className="absolute -bottom-40 -right-40 w-96 h-96 rounded-full blur-[150px] pointer-events-none -z-10 transition-colors duration-500" 
+                    style={{ backgroundColor: glowColor }}
+                />
 
-                <div className="p-6 md:p-16 max-h-[90vh] overflow-y-auto custom-scrollbar">
+                {/* Background Accent Grid */}
+                <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,currentColor_1px,transparent_1px),linear-gradient(to_bottom,currentColor_1px,transparent_1px)] bg-[size:32px_32px] -z-20" />
+
+                <div className="p-6 md:p-16 max-h-[85vh] overflow-y-auto scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-transparent">
                     <button
                         onClick={onClose}
-                        className="absolute top-4 md:top-8 right-4 md:right-8 p-2 md:p-3 rounded-full bg-foreground/5 border border-foreground/10 hover:bg-foreground/10 transition-all group z-10"
+                        className="absolute top-4 md:top-8 right-4 md:right-8 p-2.5 md:p-3.5 rounded-full bg-foreground/5 border border-card-border hover:bg-foreground/10 hover:border-foreground/20 transition-all group z-10 shadow-md"
                     >
                         <X className="w-4 h-4 md:w-5 h-5 group-hover:rotate-90 transition-transform" />
                     </button>
 
                     <div className="mb-8 md:mb-12">
                         {"award" in project && project.award && (
-                            <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1 mb-4 md:mb-6 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 text-[8px] md:text-[10px] font-black tracking-widest uppercase">
-                                <Trophy className="w-3 h-3 md:w-4 h-4" />
+                            <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-4 md:mb-6 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-500 text-[9px] md:text-[10px] font-black tracking-widest uppercase shadow-sm">
+                                <Trophy className="w-3.5 h-3.5 text-amber-400" />
                                 {project.award}
                             </div>
                         )}
-                        <h2 className="text-3xl md:text-7xl font-black mb-4 md:mb-6 tracking-tight leading-[1.1] text-foreground">{project.title}</h2>
+                        <h2 className="text-3xl md:text-6xl font-black mb-4 md:mb-6 tracking-tight leading-[1.1] text-foreground">{project.title}</h2>
                         <div className="flex flex-wrap gap-2">
                             {project.tech.map((t: string) => (
-                                <span key={t} className="px-3 md:px-4 py-1.5 md:py-2 rounded-lg md:rounded-xl bg-foreground/5 border border-card-border text-[8px] md:text-[10px] font-black text-muted-text uppercase tracking-[0.2em] shadow-sm">
+                                <span key={t} className="px-3.5 py-1.5 rounded-xl bg-white/5 border border-card-border text-[9px] md:text-[10px] font-bold text-muted-text uppercase tracking-wider shadow-sm">
                                     {t}
                                 </span>
                             ))}
@@ -171,20 +185,20 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12">
                         <div className="lg:col-span-7 space-y-8 md:space-y-10">
                             <div>
-                                <h3 className="text-muted-text/60 text-[8px] md:text-[10px] font-black uppercase tracking-[0.4em] mb-4 md:mb-6">Execution Overview</h3>
-                                <p className="text-muted-text text-base md:text-xl leading-relaxed font-medium">
+                                <h3 className="text-foreground/40 text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em] mb-4 md:mb-6">Case Study Overview</h3>
+                                <p className="text-muted-text text-sm md:text-base leading-relaxed font-medium">
                                     {project.longDescription || project.description}
                                 </p>
                             </div>
 
                             {project.features && (
                                 <div>
-                                    <h3 className="text-muted-text/60 text-[8px] md:text-[10px] font-black uppercase tracking-[0.4em] mb-4 md:mb-6">Project Capabilities</h3>
-                                    <ul className="space-y-3 md:space-y-4">
+                                    <h3 className="text-foreground/40 text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em] mb-4 md:mb-6">Core Capabilities</h3>
+                                    <ul className="space-y-3.5 md:space-y-4">
                                         {project.features.map((feature: string) => (
-                                            <li key={feature} className="flex items-center gap-3 md:gap-4 text-muted-text text-sm md:text-base group">
-                                                <div className="w-1 md:w-1.5 h-1 md:h-1.5 rounded-full bg-blue-600 dark:bg-blue-500 group-hover:scale-150 transition-transform" />
-                                                <span className="font-medium">{feature}</span>
+                                            <li key={feature} className="flex items-start gap-3.5 text-muted-text text-xs md:text-sm group">
+                                                <div className="mt-1 w-2 h-2 rounded-full bg-blue-500 dark:bg-blue-400 group-hover:scale-125 transition-transform duration-300 flex-shrink-0 shadow-[0_0_8px_rgba(59,130,246,0.8)]" />
+                                                <span className="font-medium leading-relaxed">{feature}</span>
                                             </li>
                                         ))}
                                     </ul>
@@ -192,31 +206,31 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
                             )}
                         </div>
 
-                        <div className="lg:col-span-5 border-l border-card-border pl-8 md:pl-12 hidden lg:block">
-                            <h3 className="text-muted-text/60 text-[10px] font-black uppercase tracking-[0.4em] mb-8">Metadata</h3>
-                            <div className="space-y-6">
-                                <div>
-                                    <p className="text-muted-text text-xs font-bold mb-1">Status</p>
-                                    <p className="text-foreground font-black uppercase tracking-widest text-xs">Completed</p>
+                        <div className="lg:col-span-5 lg:border-l lg:border-card-border lg:pl-10 space-y-8">
+                            <h3 className="text-foreground/40 text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em]">Project Metadata</h3>
+                            <div className="grid grid-cols-2 lg:grid-cols-1 gap-6">
+                                <div className="p-4 rounded-xl border border-card-border bg-white/[0.02]">
+                                    <p className="text-foreground/50 text-[10px] font-bold uppercase tracking-wider mb-1">Status</p>
+                                    <p className="text-foreground font-black tracking-widest text-[11px] md:text-xs uppercase">Completed & Live</p>
                                 </div>
-                                <div>
-                                    <p className="text-muted-text text-xs font-bold mb-1">Role</p>
-                                    <p className="text-foreground font-black uppercase tracking-widest text-xs">Lead Developer</p>
+                                <div className="p-4 rounded-xl border border-card-border bg-white/[0.02]">
+                                    <p className="text-foreground/50 text-[10px] font-bold uppercase tracking-wider mb-1">Primary Role</p>
+                                    <p className="text-foreground font-black tracking-widest text-[11px] md:text-xs uppercase">Lead Developer</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div className="flex flex-wrap gap-3 md:gap-4 mt-12 md:mt-20 pt-8 md:pt-10 border-t border-foreground/10">
+                    <div className="flex flex-wrap gap-3.5 mt-12 md:mt-20 pt-8 border-t border-card-border">
                         {"github" in project && project.github && (
                             <a
                                 href={project.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 rounded-xl md:rounded-2xl bg-foreground text-background font-black text-[10px] md:text-xs uppercase tracking-widest transition-transform hover:scale-[1.02]"
+                                className="flex items-center gap-2.5 px-6 md:px-8 py-3.5 rounded-2xl bg-foreground text-background hover:bg-foreground/90 font-black text-[10px] md:text-xs uppercase tracking-widest transition-transform hover:scale-[1.02] shadow-lg"
                             >
-                                <Github className="w-4 h-4 md:w-5 h-5" />
-                                Github Repo
+                                <Github className="w-4 h-4" />
+                                Github Codebase
                             </a>
                         )}
                         {"live" in project && project.live && (
@@ -224,10 +238,10 @@ function ProjectModal({ project, onClose }: { project: any; onClose: () => void 
                                 href={project.live}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 rounded-xl md:rounded-2xl bg-blue-600 text-white font-black text-[10px] md:text-xs uppercase tracking-widest transition-transform hover:scale-[1.02]"
+                                className="flex items-center gap-2.5 px-6 md:px-8 py-3.5 rounded-2xl bg-blue-600 text-white hover:bg-blue-500 font-black text-[10px] md:text-xs uppercase tracking-widest transition-transform hover:scale-[1.02] shadow-lg shadow-blue-500/15"
                             >
-                                <Globe className="w-4 h-4 md:w-5 h-5" />
-                                Visit Demo
+                                <Globe className="w-4 h-4" />
+                                Interactive Demo
                             </a>
                         )}
                     </div>

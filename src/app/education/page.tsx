@@ -17,6 +17,15 @@ const CERTIFICATIONS = [
         description: "Mastery of LLM fundamentals applied directly in SafeMap AI and other projects."
     },
     {
+        title: "IoT Developer Bootcamp",
+        issuer: "Arduino Professional",
+        year: "2026",
+        icon: "⚡",
+        accent: "#10b981",
+        skills: ["Arduino", "ESP8266", "Sensor Protocols"],
+        description: "Specialized in microcontrollers, sensory relays, and building local server communication protocols."
+    },
+    {
         title: "Introduction to Psychology",
         issuer: "Coursera",
         year: "2025",
@@ -71,9 +80,9 @@ const ACHIEVEMENTS = [
 ];
 
 const STATS = [
-    { label: "SGPA", value: "8.0", sub: "Semester 1", color: "#3b82f6" },
-    { label: "Hackathons", value: "4+", sub: "Competed", color: "#10b981" },
-    { label: "Projects", value: "5+", sub: "In production", color: "#8b5cf6" },
+    { label: "CGPA", value: "8.4", sub: "Semester 1 & 2", color: "#3b82f6" },
+    { label: "Hackathons", value: "5+", sub: "Competed", color: "#10b981" },
+    { label: "Projects", value: "6+", sub: "In production", color: "#8b5cf6" },
     { label: "Chess ELO", value: "1600+", sub: "Competitive", color: "#ec4899" }
 ];
 
@@ -171,7 +180,7 @@ export default function EducationPage() {
                         <motion.div
                             key={edu.id}
                             variants={itemVariants}
-                            whileHover={{ y: -6 }}
+                            whileHover={{ y: -8, boxShadow: `0 20px 45px ${edu.accent}12` }}
                             className="group relative flex flex-col rounded-2xl border border-card-border bg-card backdrop-blur-sm overflow-hidden transition-all duration-300"
                         >
                             {/* Accent Gradient Top Bar */}

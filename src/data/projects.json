@@ -82,5 +82,46 @@
         "award": "IIT Delhi Build for Rural India Hackathon",
         "github": "https://github.com/pragmaticnv/women-safety-sos",
         "image": "/women_safety_preview.png"
+    },
+    {
+        "id": 5,
+        "title": "MindCanvas",
+        "description": "An anonymous collaborative diary and mental wellness application for sharing thoughts freely and securely.",
+        "longDescription": "MindCanvas is a secure, anonymous blogging and journaling platform designed to give people a creative, stress-free space to voice their thoughts. Built with speed and user security in mind, it provides rich journaling tools, collaborative feeds, and mental health resources, facilitating anonymous emotional release and supportive interaction.",
+        "features": [
+            "Completely anonymous sharing & journaling",
+            "Real-time collaborative mood board and feed",
+            "Interactive mood tracker & insights dashboard",
+            "End-to-end client-side post encryption"
+        ],
+        "tech": [
+            "Next.js",
+            "Tailwind CSS",
+            "Firebase",
+            "Framer Motion"
+        ],
+        "github": "https://github.com/pragmaticnv/mindcanvas",
+        "image": "/mindcanvas_preview.png"
+    },
+    {
+        "id": 6,
+        "title": "IoT Home Automation",
+        "description": "A custom smart home network leveraging local controllers and sensor arrays to automate home appliances.",
+        "longDescription": "This IoT Home Automation System bridges software engineering with electrical design. Utilizing Arduino microcontrollers, ESP8266 Wi-Fi modules, and a custom central dashboard, it allows real-time local and remote control of lights, fans, temperature, and security systems. It incorporates smart power analytics to optimize appliance energy usage.",
+        "features": [
+            "Multi-channel appliance relay switching",
+            "Real-time sensor metrics (temperature, humidity, motion)",
+            "Local web server & remote dashboard connectivity",
+            "Automated load shedding and power surge protection"
+        ],
+        "tech": [
+            "Arduino",
+            "C++",
+            "IoT",
+            "Home Automation",
+            "Node.js"
+        ],
+        "github": "https://github.com/pragmaticnv/home-automation",
+        "image": "/automation_preview.png"
     }
 ]

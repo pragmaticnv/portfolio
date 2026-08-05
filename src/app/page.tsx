@@ -150,18 +150,18 @@ export default function Home() {
             >
               <motion.a
                 href="/projects"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition-colors shadow-lg shadow-blue-500/20"
+                whileHover={{ scale: 1.03, boxShadow: "0 10px 25px -5px rgba(59,130,246,0.4)" }}
+                whileTap={{ scale: 0.97 }}
+                className="px-8 py-3.5 rounded-full bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white font-bold text-xs uppercase tracking-widest transition-all shadow-lg shadow-blue-500/10"
               >
                 View Projects
               </motion.a>
               <motion.a
                 href="/resume.pdf"
                 download
-                whileHover={{ scale: 1.05, borderColor: "rgba(59,130,246,0.3)", backgroundColor: "rgba(59,130,246,0.05)" }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 rounded-full border border-card-border text-foreground font-semibold text-sm transition-all bg-card backdrop-blur-sm shadow-sm"
+                whileHover={{ scale: 1.03, borderColor: "rgba(255,255,255,0.25)", backgroundColor: "rgba(255,255,255,0.05)" }}
+                whileTap={{ scale: 0.97 }}
+                className="px-8 py-3.5 rounded-full border border-card-border text-foreground font-bold text-xs uppercase tracking-widest transition-all bg-white/[0.02] backdrop-blur-md shadow-sm"
               >
                 Download Resume
               </motion.a>
@@ -239,9 +239,9 @@ export default function Home() {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="grid grid-cols-3 gap-8 justify-items-center"
           >
-            <DonutChart percentage={85} color="#3b82f6" label="Electronics & IoT" delay={0.1} />
-            <DonutChart percentage={70} color="#10b981" label="Frontend Dev" delay={0.3} />
-            <DonutChart percentage={90} color="#8b5cf6" label="Leadership" delay={0.5} />
+            <DonutChart percentage={90} color="#3b82f6" label="Electronics & IoT" delay={0.1} />
+            <DonutChart percentage={85} color="#10b981" label="Full-Stack Dev" delay={0.3} />
+            <DonutChart percentage={95} color="#8b5cf6" label="AI & Coding" delay={0.5} />
           </motion.div>
         </div>
       </section>
